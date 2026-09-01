@@ -1,13 +1,241 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EQUIP INVENTORY</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Office Equipment Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <div class="login-box">
+      <p class="eyebrow">Office equipment</p>
+      <h1>Admin login</h1>
+      <p class="login-help">Sign in to manage receiving, issuing, and returns.</p>
+      <form id="loginForm" class="login-form">
+        <label>Email <input id="loginEmail" type="email" value="lidyabutiku5@gmail.com" required></label>
+        <label>Password <input id="loginPassword" type="password" placeholder="Enter password" required></label>
+        <button class="primary-button" type="submit">Log in</button>
+      </form>
+      
+      <p id="loginMessage" class="message" role="alert"></p>
+    </div>
+  </section>
+
+  <div id="appShell" class="app-shell">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Office equipment</p>
+      <h1>Stock desk</h1>
+    </div>
+    <div class="header-actions">
+      <button id="logoutButton" class="text-button" type="button">Log out</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="summary" aria-label="Stock summary">
+      <div class="summary-card"><span>Total items</span><strong id="totalItems">0</strong></div>
+      <div class="summary-card"><span>Available</span><strong id="availableItems">0</strong></div>
+      <div class="summary-card"><span>Issued</span><strong id="issuedItems">0</strong></div>
+      <div class="summary-card"><span>Movements</span><strong id="movementCount">0</strong></div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel action-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Daily actions</p>
+            <h2>Manage equipment</h2>
+          </div>
+          <span class="status-dot">Saved in browser</span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Equipment actions">
+          <button class="tab active" data-form="receiveForm" type="button">Receive</button>
+          <button class="tab" data-form="issueForm" type="button">Issue</button>
+          <button class="tab" data-form="returnForm" type="button">Return</button>
+        </div>
+
+        <form id="receiveForm" class="equipment-form active-form">
+          <label>Item name <select id="receiveName" required>
+            <option value="">-- Select Item --</option>
+            <option value="Laptop">Laptop (REF-001)</option>
+            <option value="Desktop computer">Desktop computer (REF-002)</option>
+            <option value="Monitor">Monitor (REF-003)</option>
+            <option value="Keyboard">Keyboard (REF-004)</option>
+            <option value="Mouse">Mouse (REF-005)</option>
+            <option value="Tablet">Tablet (REF-006)</option>
+            <option value="Server">Server (REF-007)</option>
+            <option value="Webcam">Webcam (REF-008)</option>
+            <option value="Headset">Headset (REF-009)</option>
+            <option value="Computer speakers">Computer speakers (REF-010)</option>
+            <option value="UPS">UPS (REF-011)</option>
+            <option value="External hard drive">External hard drive (REF-012)</option>
+            <option value="Flash drive">Flash drive (REF-013)</option>
+            <option value="Wi-Fi router">Wi-Fi router (REF-014)</option>
+            <option value="Network switch">Network switch (REF-015)</option>
+            <option value="Projector">Projector (REF-016)</option>
+          </select></label>
+          <label>Quantity <input id="receiveQuantity" type="number" min="1" value="1" required></label>
+          <label>Reference number <input id="receiveReference" type="text" placeholder="Auto-populated from item" readonly></label>
+          <button class="primary-button" type="submit">Add to stock</button>
+        </form>
+
+        <form id="issueForm" class="equipment-form">
+          <label>Choose item <select id="issueItem" required></select></label>
+          <label>Employee name <input id="issueEmployee" type="text" placeholder="Example: Amina Khan" required></label>
+          <label>Department <select id="issueDepartment" required>
+            <option value="">-- Select Department --</option>
+            <option value="Outpatient Department (OPD)">Outpatient Department (OPD)</option>
+            <option value="Emergency Department">Emergency Department</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Laboratory">Laboratory</option>
+            <option value="Radiology">Radiology</option>
+            <option value="Maternity">Maternity</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Surgery">Surgery</option>
+            <option value="Nursing">Nursing</option>
+            <option value="Medical Records">Medical Records</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance">Finance</option>
+            <option value="IT">IT</option>
+            <option value="Procurement">Procurement</option>
+            <option value="Maintenance">Maintenance</option>
+          </select></label>
+          <button class="primary-button" type="submit">Issue item</button>
+        </form>
+
+        <form id="returnForm" class="equipment-form">
+          <label>Issued item <select id="returnItem" required></select></label>
+          <label>Return condition
+            <select id="returnCondition" required>
+              <option value="Good">Good</option>
+              <option value="Damaged">Damaged</option>
+            </select>
+          </label>
+          <label>Returned by (Department) <select id="returnDepartment" required>
+            <option value="">-- Select Department --</option>
+            <option value="Outpatient Department (OPD)">Outpatient Department (OPD)</option>
+            <option value="Emergency Department">Emergency Department</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Laboratory">Laboratory</option>
+            <option value="Radiology">Radiology</option>
+            <option value="Maternity">Maternity</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Surgery">Surgery</option>
+            <option value="Nursing">Nursing</option>
+            <option value="Medical Records">Medical Records</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance">Finance</option>
+            <option value="IT">IT</option>
+            <option value="Procurement">Procurement</option>
+            <option value="Maintenance">Maintenance</option>
+          </select></label>
+          <label>Return note <input id="returnNote" type="text" placeholder="Optional note"></label>
+          <button class="primary-button" type="submit">Record return</button>
+        </form>
+        <p id="message" class="message" role="status"></p>
+      </div>
+
+      <div class="panel stock-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Live view</p>
+            <h2>Current stock</h2>
+          </div>
+          <input id="searchInput" class="search" type="search" placeholder="Search items" aria-label="Search items">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Item</th><th>Reference</th><th>Available</th><th>Issued</th><th>People holding it</th><th>Action</th></tr></thead>
+            <tbody id="stockTable"></tbody>
+          </table>
+          <p id="emptyStock" class="empty-state">No items yet. Use Receive to add stock.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel history-panel">
+      <div class="panel-heading">
+        <div><p class="eyebrow">Audit trail</p><h2>Movement history</h2></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Action</th><th>Item</th><th>Details</th><th>Action</th></tr></thead>
+          <tbody id="historyTable"></tbody>
+        </table>
+        <p id="emptyHistory" class="empty-state">Your movements will appear here.</p>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- Edit Item Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Item</h3>
+        <button id="closeEditModal" class="close-button" type="button">&times;</button>
+      </div>
+      <form id="editForm" class="edit-form">
+        <label>Item name <input id="editItemName" type="text" required></label>
+        <label>Available quantity <input id="editItemQuantity" type="number" min="0" required></label>
+        
+        <div class="people-section">
+          <label>People holding it</label>
+          <div id="editPeopleList" class="people-list"></div>
+          
+          <div class="add-person-section">
+            <label>Add person <input id="editPersonEmployee" type="text" placeholder="Employee name"></label>
+            <label>Department <select id="editPersonDepartment" required>
+              <option value="">-- Select Department --</option>
+              <option value="Outpatient Department (OPD)">Outpatient Department (OPD)</option>
+              <option value="Emergency Department">Emergency Department</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="Laboratory">Laboratory</option>
+              <option value="Radiology">Radiology</option>
+              <option value="Maternity">Maternity</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Surgery">Surgery</option>
+              <option value="Nursing">Nursing</option>
+              <option value="Medical Records">Medical Records</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Finance">Finance</option>
+              <option value="IT">IT</option>
+              <option value="Procurement">Procurement</option>
+              <option value="Maintenance">Maintenance</option>
+            </select></label>
+            <button id="addPersonButton" class="secondary-button" type="button">Add</button>
+          </div>
+        </div>
+        
+        <div class="modal-actions">
+          <button class="primary-button" type="submit">Save changes</button>
+          <button id="cancelEditModal" class="secondary-button" type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Movement Modal -->
+  <div id="editMovementModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Movement</h3>
+        <button id="closeEditMovementModal" class="close-button" type="button">&times;</button>
+      </div>
+      <form id="editMovementForm" class="edit-form">
+        <label>Item name <input id="editMovementItem" type="text" required></label>
+        <label>Details <input id="editMovementDetails" type="text" required></label>
+        <div class="modal-actions">
+          <button class="primary-button" type="submit">Save changes</button>
+          <button id="cancelEditMovementModal" class="secondary-button" type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>
