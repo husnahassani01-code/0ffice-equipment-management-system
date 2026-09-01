@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Sidebar from './components/sidebar'
 import Main from './components/main'
 import Header from './components/header'
+import Stock from './components/stock'
 
 import './App.css'
 
@@ -13,9 +14,10 @@ function App() {
 
   return (
     <div className= {`mainContainer ${sidebarOpen ? "sidebarOpen" : "sidebarClosed"}`}>
-    <Sidebar/>
+      <Sidebar/>
       <Header onMenuClick={toggleSidebar} />
       <Main/>
+      <Stock/>
       
     </div>
   )

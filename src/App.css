@@ -19,9 +19,11 @@ body{
 
 .head{
   height: 100px;
+  width: 100%;
   background-color: white;
   grid-area: header;
   align-content: center;
+  position: sticky;
   
 }
 .icon{
@@ -59,8 +61,7 @@ body{
   color: white;
   height: 100vh;
   grid-area: sidebar;
-  overflow: hidden;
-
+  position: static;  
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
@@ -118,6 +119,7 @@ a{
   padding-left: 20px;
   transition: 0.5s;
   overflow-y: auto;
+  
 }
 .cardContainer{
   display: flex;
@@ -213,4 +215,136 @@ a{
   flex-wrap: wrap;
   gap: 10px;
 }
+.table1 {
+  width: 500pxpx;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  text-align: start;
+  height: 570px;
+  padding-top: 5px;
+  margin-top: 29px;
+}
+
+tr th {
+  border-bottom: 1px solid #edf0f5;
+  padding: 10px;
+  text-align: start;
+}
+tr td {
+  padding: 5px 10px;
+  vertical-align: middle;
+  border-bottom: 1px solid #edf0f5;
+}
+.tableContainer{
+  display:flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/* End Main */
+
+
+/* Start Stock */
+
+.stockContainer{
+  padding-top: 40px;
+  padding-left: 30px;
+  width: 100vw;
+  /* width: 100%; */
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stockHead{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1450px
+}
+.btn1{
+  height: 40px;
+  width: 170px;
+  background-color: rgb(124, 124, 247);
+  color: white;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.button{
+  padding-right: 40px;
+}
+.CardItems{
+  display: flex;
+  gap: 15px;
+}
+.CardItems{
+  height: 150px;
+  width: 370px;
+  border-radius: 1px solid black;
+  padding-left: 20px;
+  background-color: white;
+  box-shadow: 2px rgb(220, 219, 220);
+  border-radius: 10px;
+}
+.cardItem{
+  display: flex;
+  justify-content: space-between ;
+}
+#search1{
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 270px;
+  height: 20px;
+  width: 20px;
+}
+#inputSearch{
+  height: 30px;
+  width: 300px;
+  border-radius: 5px;
+  border: #cacacb;
+}
+
+.searchStock{
+  display: flex;
+  gap: 20px;
+}
+.btnS{
+  width: 200px;
+  height: 35px;
+  background-color: white;
+  border: #cacacb;
+  box-shadow: #cacacb;
+  border-radius: 8px;
+}
+.btn2{
+  width: 100px;
+  height: 35px;
+  background-color: white;
+  border: #929293;
+  border-radius: 8px;
+}
+.stockSearch{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+.tableStock{
+  background-color: white;
+  border-radius: 10px;
+}
+#tp{
+  padding-left: 15px;
+  color: #868688;
+}
+
+/* End Stock */
+
+
+
 
