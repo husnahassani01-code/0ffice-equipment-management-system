@@ -348,3 +348,74 @@ tr td {
 
 
 
+.pageArea {
+  width: 100%;
+}
+
+.pageContent {
+  padding: 30px;
+  margin-left: 250px;
+  margin-top: 80px;
+}
+
+.pageTitle {
+  margin-bottom: 25px;
+}
+
+.pageTitle h2 {
+  margin-bottom: 5px;
+}
+
+.pageTitle p {
+  color: #777;
+}
+
+.formContainer {
+  background: white;
+  padding: 25px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.formContainer h3 {
+  margin-bottom: 20px;
+}
+
+.formContainer label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.formContainer input,
+.formContainer select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.formContainer button {
+  margin-top: 20px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #1f2937;
+  color: white;
+}
+
+.departmentList {
+  margin-top: 25px;
+  background: white;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+}
+
+.departmentList li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
