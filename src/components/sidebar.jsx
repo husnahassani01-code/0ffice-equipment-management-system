@@ -3,7 +3,7 @@ import { BsHouseFill, BsBarChartFill, BsExclamationTriangle, BsPersonCircle, BsB
    import logo from "../assets/logo.png"
   //  import {useState} from "react"
    
-function sidebar() {
+function sidebar({setActivePage}) {
   
 
   return (
@@ -11,12 +11,12 @@ function sidebar() {
          <div className="logo">
                 <img src={logo} alt="" id='sdImage'/>
                 <h3>Equipment Track Management</h3>
-            </div>
+          </div>
          <nav className="navigation">
              <ul>
-                 <li><BsHouseFill className="icon"></BsHouseFill><a href="main.jsx">DASHBORD</a></li>
-                 <li><BsBoxes className='icon'></BsBoxes><a href="">ASSETS</a></li>
-                 <li><BsBoxSeam className='icon'></BsBoxSeam><a href="">STOCK</a></li>
+                 <li onClick={() => setActivePage("dashboard")}><BsHouseFill className="icon"></BsHouseFill><a href="main.jsx" onClick={() => setActivePage("dashboard")}>DASHBORD</a></li>
+                 <li><BsBoxes className='icon'></BsBoxes><a href="" onClick={() => setActivePage("assets")}>ASSETS</a></li>
+                 <li  onClick={() => setActivePage("stock")}><BsBoxSeam className='icon'></BsBoxSeam><a href="">STOCK</a></li>
                  <li><BsFillEnvelopeFill className='icon'></BsFillEnvelopeFill><a href="">RECEIVING</a></li>
                  <li><BsClipboardCheck className='icon'></BsClipboardCheck><a href="">ISSURING</a></li>
                  <li><BsArrowReturnLeft className='icon'></BsArrowReturnLeft><a href="">RETURNS</a></li>
