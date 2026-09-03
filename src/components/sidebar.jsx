@@ -22,7 +22,7 @@ function sidebar({setActivePage}) {
                  <li onClick={() => setActivePage("returns")}><BsArrowReturnLeft className='icon'></BsArrowReturnLeft><a>RETURNS</a></li>
                  <li onClick={() => setActivePage("transfers")}><BsArrowLeftRight className='icon'></BsArrowLeftRight><a>TRANSFERS</a></li>
                  <li onClick={() => setActivePage("damage")}><BsExclamationTriangle className='icon'></BsExclamationTriangle><a>DAMAGE/LOOSE</a></li>
-                 <li onClick={() => setActivePage("employees")}><BsPersonCircle className='icon'></BsPersonCircle><a>EMPLOYEES</a></li>
+                 <li onClick={() => setActivePage("employee")}><BsPersonCircle className='icon'></BsPersonCircle><a>EMPLOYEES</a></li>
                  <li onClick={() => setActivePage("departments")}><BsBuilding className="icon"></BsBuilding><a>DEPARTMENTS</a></li>
                  <li onClick={() => setActivePage("users")}><BsPeopleFill className='icon'></BsPeopleFill><a>USERS</a></li>
                  <li onClick={() => setActivePage("reports")}><BsBarChartFill className='icon'></BsBarChartFill><a>REPORTS</a></li>

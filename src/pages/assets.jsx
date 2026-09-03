@@ -14,9 +14,7 @@ function assets(){
           + Add Asset
         </button>
       </div>
-
       <div className="assetCards">
-
         <div className="assetCard">
           <BsLaptop />
           <div>
@@ -24,7 +22,6 @@ function assets(){
             <strong>340</strong>
           </div>
         </div>
-
         <div className="assetCard">
           <BsDisplay />
           <div>
@@ -32,7 +29,6 @@ function assets(){
             <strong>245</strong>
           </div>
         </div>
-
         <div className="assetCard">
           <BsPrinter />
           <div>
@@ -40,14 +36,10 @@ function assets(){
             <strong>75</strong>
           </div>
         </div>
-
       </div>
 
-
       <div className="assetTable">
-
         <table>
-
           <thead>
             <tr>
               <th>Asset ID</th>
@@ -59,9 +51,7 @@ function assets(){
               <th>Action</th>
             </tr>
           </thead>
-
           <tbody>
-
             <tr>
               <td>AST-001</td>
               <td>Dell Laptop</td>
@@ -73,7 +63,6 @@ function assets(){
                 <BsThreeDotsVertical />
               </td>
             </tr>
-
             <tr>
               <td>AST-002</td>
               <td>HP Printer</td>
@@ -85,7 +74,6 @@ function assets(){
                 <BsThreeDotsVertical />
               </td>
             </tr>
-
             <tr>
               <td>AST-003</td>
               <td>Dell Monitor</td>
@@ -97,7 +85,6 @@ function assets(){
                 <BsThreeDotsVertical />
               </td>
             </tr>
-
             <tr>
               <td>AST-005</td>
               <td>Samsung Monitor</td>
@@ -107,7 +94,6 @@ function assets(){
               <td>Available</td>
               <td><BsThreeDotsVertical /></td>
             </tr>
-
             <tr>
               <td>AST-006</td>
               <td>Canon Printer</td>
@@ -117,7 +103,6 @@ function assets(){
               <td>Assigned</td>
               <td><BsThreeDotsVertical /></td>
             </tr>
-
             <tr>
               <td>AST-007</td>
               <td>HP Desktop Computer</td>
@@ -130,12 +115,8 @@ function assets(){
             <p></p>
           <p id='tp'>Showing 1to 8 of 142 items</p>
           </tbody>
-
         </table>
-
       </div>
-
-        
     </div>
   )
 }

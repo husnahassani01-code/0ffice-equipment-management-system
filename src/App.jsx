@@ -5,6 +5,7 @@ import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import Stock from './pages/stock';
 import Assets from './pages/assets';
+import Employee from './pages/employee';
 import './App.css'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         {activePage === "dashboard" && <Dashboard />}
         {activePage === "stock" && <Stock />}
         {activePage === "assets" && <Assets />}
+        {activePage === "employee" && <Employee />}
       </main>
     </div>
   )

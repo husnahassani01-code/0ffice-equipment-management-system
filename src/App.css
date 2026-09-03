@@ -54,7 +54,6 @@ body{
 .asides{
   background-color: #2B569A;
   color: white;
-  /* height: calc(100vh - 100px); */
   height: 100vh;
   width: 270px;
   position: fixed;  
@@ -118,31 +117,10 @@ a{
   padding-left: 10px;
   padding-right: 10px;
 }
-
-.icon1{
-  font-size: 70px;
-  padding-top: 25px;
-  color: green;
-}
-.icon2{
-  font-size: 70px;
-  padding-top: 25px;
-  color: rgb(221, 155, 24);
-}
-.icon3{
-  font-size: 70px;
-  padding-top: 25px;
-  color: rgb(215, 127, 127);
-}
-.icon6{
-  font-size: 70px;
-  padding-top: 25px;
-  color: rgb(178, 225, 37);
-}
-.icon7{
-  font-size: 70px;
-  padding-top: 25px;
-  color: rgb(225, 37, 37);
+.table1 button{
+  background-color: #2B569A;
+  color: white;
+  border-radius: 5px;
 }
 .icon4{
   font-size: 70px;
@@ -152,8 +130,9 @@ a{
 .icon5{
   font-size: 70px;
   padding-top: 25px;
-  color: rgb(230, 63, 188);
+  color: red;
 }
+
 #number{
   font-size: 26px;
 }
@@ -257,7 +236,7 @@ tr td {
 .btn1{
   height: 40px;
   width: 170px;
-  background-color: rgb(124, 124, 247);
+  background-color: #315fa5;;
   color: white;
   border-radius: 10px;
   font-size: 15px;
@@ -322,7 +301,16 @@ tr td {
 }
 .tableStock{
   background-color: white;
+  border-collapse: collapse;
   border-radius: 10px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.tableStock th{
+  background-color: #315fa5;
+  color: white;
+  height: 35px;
+ 
 }
 #tp{
   padding-left: 15px;
@@ -422,7 +410,6 @@ tr td {
   margin-bottom: 40px;
 }
 .formButton{
-  width: ;
   display: flex;
   flex-direction: column;
   margin-top: 0;
@@ -468,11 +455,12 @@ tr td {
   color: #777;
 }
 .addAsset {
-  background: rgb(124, 124, 247);
+  background: #315fa5;
   color: white;
   border: none;
   padding: 10px 18px;
   border-radius: 7px;
+  font-size: 16px;
 }
 .assetCards {
   display: flex;
@@ -515,10 +503,112 @@ tr td {
   border-bottom: 1px solid #eee;
 }
 .assetTable th {
-  background: #f5f5f5;
+  color: white;
+  background-color: #315fa5;;
 }
 
 /* End Assets */
+
+/* Employee */
+
+.employeesPage {
+  padding-top: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.employeesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.employeesHeader h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.employeesHeader p {
+  margin-top: 8px;
+  color: #777;
+}
+
+.addEmployee {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #315fa5;
+  color: white;
+  cursor: pointer;
+}
+.employeeCards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.employeeCard {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.employeeCard svg {
+  font-size: 45px;
+  color: #315fa5;
+}
+
+.employeeCard p {
+  margin: 0 0 8px 0;
+  color: #777;
+}
+
+.employeeCard strong {
+  font-size: 25px;
+}
+.employeeTable {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.employeeTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employeeTable th {
+  background-color: #315fa5;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+.employeeTable td {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+.employeeTable tr:hover {
+  background-color: #f5f5f5;
+}
+
+.employeeTable td svg {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* End Employee */
 
 
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import {BsBoxSeam,BsBoxes,BsThreeDotsVertical, BsSearch} from 'react-icons/bs'
 import laptop from "../assets/laptop.jpeg"
 import printer from "../assets/printer.png"
@@ -17,7 +16,7 @@ const stock = () => {
                       <p>Manage and track your office stock items</p>
                    </div> 
                    <div className="button">
-                      <button className="btn1">Add Stock Item</button>
+                      <button className="btn1">+ Add Stock</button>
                    </div>
                 </div>
                 <div className="cardItem">
