@@ -1,16 +1,13 @@
 import { BsJustifyLeft, BsExclamationTriangle, BsPersonCircle, BsBoxSeam, 
    BsBoxes, BsArrowLeftRight, BsArrowReturnLeft,BsClipboardCheck} from 'react-icons/bs'
 
-function main() {
-  
-
+function dashboard() {
   return (
     <div className='content'>
       <div className='dash'>
-      <h2>Dashbord</h2>
-      <p>Welcome back</p>
+         <h2>Dashbord</h2>
+         <p>Welcome back</p>
       </div>
-
 
       <div className='container'>
       <div className="cardContainer">
@@ -214,4 +211,4 @@ function main() {
   )
 }
 
-export default main
+export default dashboard

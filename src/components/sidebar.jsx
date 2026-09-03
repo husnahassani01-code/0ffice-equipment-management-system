@@ -14,18 +14,18 @@ function sidebar({setActivePage}) {
           </div>
          <nav className="navigation">
              <ul>
-                 <li onClick={() => setActivePage("dashboard")}><BsHouseFill className="icon"></BsHouseFill><a href="main.jsx" onClick={() => setActivePage("dashboard")}>DASHBORD</a></li>
-                 <li><BsBoxes className='icon'></BsBoxes><a href="" onClick={() => setActivePage("assets")}>ASSETS</a></li>
-                 <li  onClick={() => setActivePage("stock")}><BsBoxSeam className='icon'></BsBoxSeam><a href="">STOCK</a></li>
-                 <li><BsFillEnvelopeFill className='icon'></BsFillEnvelopeFill><a href="">RECEIVING</a></li>
-                 <li><BsClipboardCheck className='icon'></BsClipboardCheck><a href="">ISSURING</a></li>
-                 <li><BsArrowReturnLeft className='icon'></BsArrowReturnLeft><a href="">RETURNS</a></li>
-                 <li><BsArrowLeftRight className='icon'></BsArrowLeftRight><a href="">TRANSFERS</a></li>
-                 <li><BsExclamationTriangle className='icon'></BsExclamationTriangle><a href="">DAMAGE/LOOSE</a></li>
-                 <li><BsPersonCircle className='icon'></BsPersonCircle><a href="">EMPLOYEES</a></li>
-                 <li><BsBuilding className="icon"></BsBuilding><a href="">DEPARTMENTS</a></li>
-                 <li><BsPeopleFill className='icon'></BsPeopleFill><a href="">USERS</a></li>
-                 <li><BsBarChartFill className='icon'></BsBarChartFill><a href="">REPORTS</a></li>
+                 <li onClick={() => setActivePage("dashboard")}><BsHouseFill className="icon"></BsHouseFill><a>DASHBORD</a></li>
+                 <li><BsBoxes className='icon'></BsBoxes><a>ASSETS</a></li>
+                 <li onClick={() => setActivePage("stock")}><BsBoxSeam className='icon'></BsBoxSeam><a>STOCK</a></li>
+                 <li onClick={() => setActivePage("receiving")}><BsFillEnvelopeFill className='icon'></BsFillEnvelopeFill><a>RECEIVING</a></li>
+                 <li onClick={() => setActivePage("issuring")}><BsClipboardCheck className='icon'></BsClipboardCheck><a>ISSURING</a></li>
+                 <li onClick={() => setActivePage("returns")}><BsArrowReturnLeft className='icon'></BsArrowReturnLeft><a>RETURNS</a></li>
+                 <li onClick={() => setActivePage("transfers")}><BsArrowLeftRight className='icon'></BsArrowLeftRight><a>TRANSFERS</a></li>
+                 <li onClick={() => setActivePage("damage")}><BsExclamationTriangle className='icon'></BsExclamationTriangle><a>DAMAGE/LOOSE</a></li>
+                 <li onClick={() => setActivePage("employees")}><BsPersonCircle className='icon'></BsPersonCircle><a>EMPLOYEES</a></li>
+                 <li onClick={() => setActivePage("departments")}><BsBuilding className="icon"></BsBuilding><a>DEPARTMENTS</a></li>
+                 <li onClick={() => setActivePage("users")}><BsPeopleFill className='icon'></BsPeopleFill><a>USERS</a></li>
+                 <li onClick={() => setActivePage("reports")}><BsBarChartFill className='icon'></BsBarChartFill><a>REPORTS</a></li>
               </ul>
          </nav>
       

@@ -31,10 +31,7 @@ const login = ({onLogin}) => {
                </div>
             </div>
         </div>
-
-
-      
-    </div>
+     </div>
   )
 }
 

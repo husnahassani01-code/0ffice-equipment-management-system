@@ -10,7 +10,7 @@ import mouse from "../assets/mouse.webp"
 
 const stock = () => {
   return (
-    <div className="stockContainer">
+           <div className="stockContainer">
                 <div className="stockHead">
                    <div className="">
                       <h3>Stock Management</h3>
