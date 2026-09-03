@@ -15,7 +15,7 @@ function sidebar({setActivePage}) {
          <nav className="navigation">
              <ul>
                  <li onClick={() => setActivePage("dashboard")}><BsHouseFill className="icon"></BsHouseFill><a>DASHBORD</a></li>
-                 <li><BsBoxes className='icon'></BsBoxes><a>ASSETS</a></li>
+                 <li onClick={() => setActivePage("assets")}><BsBoxes className='icon'></BsBoxes><a>ASSETS</a></li>
                  <li onClick={() => setActivePage("stock")}><BsBoxSeam className='icon'></BsBoxSeam><a>STOCK</a></li>
                  <li onClick={() => setActivePage("receiving")}><BsFillEnvelopeFill className='icon'></BsFillEnvelopeFill><a>RECEIVING</a></li>
                  <li onClick={() => setActivePage("issuring")}><BsClipboardCheck className='icon'></BsClipboardCheck><a>ISSURING</a></li>

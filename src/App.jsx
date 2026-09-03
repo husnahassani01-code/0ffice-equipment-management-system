@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Header from './components/header'
-import Sidebar from './components/sidebar'
-import Login from './pages/login'
-import Dashboard from './pages/dashboard'
-import Stock from './pages/stock'
+import Header from './components/header';
+import Sidebar from './components/sidebar';
+import Login from './pages/login';
+import Dashboard from './pages/dashboard';
+import Stock from './pages/stock';
+import Assets from './pages/assets';
 import './App.css'
 
 function App() {
@@ -24,13 +25,11 @@ function App() {
       <Header onMenuClick={toggleSidebar}/>
       <Sidebar sidebarOpen={sidebarOpen}
         setActivePage={setActivePage}/>
-      {/* <Dashboard/> */}
       <main className='pageContent'>
         {activePage === "dashboard" && <Dashboard />}
         {activePage === "stock" && <Stock />}
-        {/* {activePage === "assets" && <Assets />} */}
+        {activePage === "assets" && <Assets />}
       </main>
-      {/* <Stock/> */}
     </div>
   )
 }
