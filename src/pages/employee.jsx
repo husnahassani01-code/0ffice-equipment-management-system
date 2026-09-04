@@ -1,5 +1,6 @@
-import React from 'react'
+// import React from 'react'
 import {BsPersonCircle,BsThreeDotsVertical} from "react-icons/bs";
+import './employee.css'
 
 function employee() {
   return(

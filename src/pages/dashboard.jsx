@@ -1,5 +1,6 @@
 import { BsJustifyLeft, BsExclamationTriangle, BsPersonCircle, BsBoxSeam, 
    BsBoxes, BsArrowLeftRight, BsArrowReturnLeft,BsClipboardCheck} from 'react-icons/bs'
+   import './dashboard.css'
 
 function dashboard() {
   return (

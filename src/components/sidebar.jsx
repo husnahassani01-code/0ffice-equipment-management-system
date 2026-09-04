@@ -1,6 +1,7 @@
 import { BsHouseFill, BsBarChartFill, BsExclamationTriangle, BsPersonCircle, BsBoxSeam, BsPeopleFill,
    BsBuilding, BsBoxes, BsArrowLeftRight, BsArrowReturnLeft,BsClipboardCheck,BsFillEnvelopeFill} from 'react-icons/bs'
    import logo from "../assets/logo.png"
+   import './sidebar.css'
   //  import {useState} from "react"
    
 function sidebar({setActivePage}) {

@@ -1,5 +1,6 @@
 // import React from 'react'
 import {BsThreeDotsVertical,BsLaptop,BsPrinter,BsDisplay,} from "react-icons/bs";
+import './assets.css'
 
 function assets(){
   return(

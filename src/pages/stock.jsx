@@ -6,13 +6,14 @@ import table from "../assets/table.jpeg"
 import ream from "../assets/ream.webp"
 import color from "../assets/color.jpeg"
 import mouse from "../assets/mouse.webp"
+import './stock.css'
 
 const stock = () => {
   return (
            <div className="stockContainer">
                 <div className="stockHead">
                    <div className="">
-                      <h3>Stock Management</h3>
+                      <h2>Stock management</h2>
                       <p>Manage and track your office stock items</p>
                    </div> 
                    <div className="button">
