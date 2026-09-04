@@ -195,22 +195,19 @@
   padding: 17px 20px;
   text-align: left;
   font-size: 15px;
-  font-weight: 600;
   color: white;
   white-space: nowrap;
 }
 .receiving-table td {
   padding: 17px 20px;
   border-top: 1px solid #eceef2;
-  font-size: 14px;
-  color: #111827;
   white-space: nowrap;
 }
 .receiving-table tbody tr {
   transition: 0.15s ease;
 }
 .receiving-table tbody tr:hover {
-  background: #fafbff;
+  background: #e5eafc;
 }
 .receiving-status {
   display: inline-block;
@@ -354,22 +351,20 @@
 
 }
 
-@media (max-width: 500px) {
+.receiving-page {
+  padding: 20px 10px;
+}
 
-  .receiving-page {
-    padding: 20px 10px;
-  }
+.receiving-card {
+  padding: 15px;
+}
 
-  .receiving-card {
-    padding: 15px;
-  }
+.receiving-card-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 21px;
+}
 
-  .receiving-card-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 21px;
-  }
-
-  .receiving-card h2 {
-    font-size: 25px;
-  }
+.receiving-card h2 {
+  font-size: 25px;
+}

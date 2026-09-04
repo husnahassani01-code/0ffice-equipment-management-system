@@ -8,6 +8,7 @@ import Stock from './pages/stock';
 import Assets from './pages/assets';
 import Employee from './pages/employee';
 import Receiving from './pages/receiving';
+import Issuing from './pages/issuing';
 import './App.css'
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
           {activePage === "assets" && <Assets />}
           {activePage === "employee" && <Employee />}
           {activePage === "receiving" && <Receiving />}
+          {activePage === "issuing" && <Issuing />}
+
 
         </main>
           <Routes>
