@@ -20,8 +20,8 @@ function Sidebar({ setActivePage, activePage }) {
                  <li className={activePage === "receiving" ? "activeNav" : ""} onClick={() => setActivePage("receiving")}><BsFillEnvelopeFill className='icon'></BsFillEnvelopeFill><a href="#" onClick={(event) => event.preventDefault()}>RECEIVING</a></li>
                  <li className={activePage === "issuing" ? "activeNav" : ""} onClick={() => setActivePage("issuing")}><BsClipboardCheck className='icon'></BsClipboardCheck><a href="#" onClick={(event) => event.preventDefault()}>ISSUING</a></li>
                  <li className={activePage === "returns" ? "activeNav" : ""} onClick={() => setActivePage("returns")}><BsArrowReturnLeft className='icon'></BsArrowReturnLeft><a href="#" onClick={(event) => event.preventDefault()}>RETURNS</a></li>
-                 <li><BsArrowLeftRight className='icon'></BsArrowLeftRight><a href="">TRANSFERS</a></li>
-                 <li><BsExclamationTriangle className='icon'></BsExclamationTriangle><a href="">DAMAGE/LOOSE</a></li>
+                 <li className={activePage === "transfer" ? "activeNav" : ""} onClick={() => setActivePage("transfer")}><BsArrowLeftRight className='icon'></BsArrowLeftRight><a href="#" onClick={(event) => event.preventDefault()}>TRANSFERS</a></li>
+                 <li className={activePage === "damage" ? "activeNav" : ""} onClick={() => setActivePage("damage")}><BsExclamationTriangle className='icon'></BsExclamationTriangle><a href="#" onClick={(event) => event.preventDefault()}>DAMAGE/LOOSE</a></li>
                  <li><BsPersonCircle className='icon'></BsPersonCircle><a href="">EMPLOYEES</a></li>
                  <li className={activePage === "departments" ? "activeNav" : ""} onClick={() => setActivePage("departments")}><BsBuilding className="icon"></BsBuilding><a href="#" onClick={(event) => event.preventDefault()}>DEPARTMENTS</a></li>
                  <li><BsPeopleFill className='icon'></BsPeopleFill><a href="">USERS</a></li>

@@ -8,13 +8,16 @@ import Receiving from './pages/Receiving'
 import Issuing from './pages/Issuing'
 import Returns from './pages/Return'
 import Departments from './pages/Department'
+import Transfer from './pages/transfer'
+import DamageLoss from './pages/damage/damage_loss'
+
 import './App.css'
 
 function App() {
-//   const [sidebarOpen, setSidebarOpen] = useState(true);
-//    const toggleSidebar = () => {
-//     setSidebarOpen(!sidebarOpen);
-//   };
+  //   const [sidebarOpen, setSidebarOpen] = useState(true);
+  //    const toggleSidebar = () => {
+  //     setSidebarOpen(!sidebarOpen);
+  //   };
   const [activePage, setActivePage] = useState("main");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -28,9 +31,9 @@ function App() {
   }
 
   return (
-    <div className= {`mainContainer ${sidebarOpen ? "sidebarOpen" : "sidebarClosed"}`}>
-      <Sidebar setActivePage={setActivePage} activePage={activePage}/>
-      <Header onMenuClick={toggleSidebar}/>
+    <div className={`mainContainer ${sidebarOpen ? "sidebarOpen" : "sidebarClosed"}`}>
+      <Sidebar setActivePage={setActivePage} activePage={activePage} />
+      <Header onMenuClick={toggleSidebar} />
       <main className="appPage">
         {activePage === "main" && <Main />}
         {activePage === "stock" && <Stock />}
@@ -38,6 +41,8 @@ function App() {
         {activePage === "issuing" && <Issuing />}
         {activePage === "returns" && <Returns />}
         {activePage === "departments" && <Departments />}
+        {activePage === "transfer" && <Transfer />}
+        {activePage === "damage" && <DamageLoss />}
       </main>
     </div>
   );
