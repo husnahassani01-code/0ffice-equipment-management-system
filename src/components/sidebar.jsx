@@ -11,7 +11,7 @@ function sidebar({setActivePage}) {
     <div className='asides'>
          <div className="logo">
                 <img src={logo} alt="" id='sdImage'/>
-                <h3>Equipment Track Management</h3>
+                <h3>Equipment Track Management System</h3>
           </div>
          <nav className="navigation">
              <ul>
@@ -26,10 +26,9 @@ function sidebar({setActivePage}) {
                  <li onClick={() => setActivePage("employee")}><BsPersonCircle className='icon'></BsPersonCircle><a>EMPLOYEES</a></li>
                  <li onClick={() => setActivePage("department")}><BsBuilding className="icon"></BsBuilding><a>DEPARTMENTS</a></li>
                  <li onClick={() => setActivePage("users")}><BsPeopleFill className='icon'></BsPeopleFill><a>USERS</a></li>
-                 <li onClick={() => setActivePage("reports")}><BsBarChartFill className='icon'></BsBarChartFill><a>REPORTS</a></li>
+                 <li onClick={() => setActivePage("report")}><BsBarChartFill className='icon'></BsBarChartFill><a>REPORTS</a></li>
               </ul>
          </nav>
-      
     </div>
   )
 }

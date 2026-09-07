@@ -10,6 +10,7 @@ import Employee from './pages/employee';
 import Receiving from './pages/receiving';
 import Issuing from './pages/issuing';
 import Department from './pages/department';
+import Report from './pages/report';
 import './App.css'
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
           {activePage === "receiving" && <Receiving />}
           {activePage === "issuing" && <Issuing />}
           {activePage === "department" && <Department />}
+          {activePage === "report" && <Report />}
+
         </main>
           <Routes>
             <Route path="/login" element={<Login />} />
