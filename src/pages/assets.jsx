@@ -1,9 +1,9 @@
 // import React from 'react'
-import {BsThreeDotsVertical,BsLaptop,BsPrinter,BsDisplay,} from "react-icons/bs";
+import { BsThreeDotsVertical, BsLaptop, BsPrinter, BsDisplay, } from "react-icons/bs";
 import './assets.css'
 
-function assets(){
-  return(
+function assets() {
+  return (
     <div className='assetsPage'>
 
       <div className="assetsHeader">
@@ -113,10 +113,9 @@ function assets(){
               <td>Assigned</td>
               <td><BsThreeDotsVertical /></td>
             </tr>
-            <p></p>
-          <p id='tp'>Showing 1to 8 of 142 items</p>
           </tbody>
         </table>
+        <p id='tp'>Showing 1 to 8 of 142 items</p>
       </div>
     </div>
   )

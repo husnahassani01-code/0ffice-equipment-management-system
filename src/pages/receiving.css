@@ -1,7 +1,5 @@
-
 .receiving-page {
-  min-height: 100%;
-  padding-top: 110px;
+  /* min-height: 100%; */
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -11,6 +9,9 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 28px;
+  padding-top: 110px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .receiving-header h1 {
@@ -43,7 +44,8 @@
 }
 
 .receiving-cards {
-  width: 100%;
+  padding-left: 20px;
+  width: 1420px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -89,7 +91,7 @@
 }
 
 .receiving-filters {
-  width: 1400px;
+  width: 1380px;
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
@@ -98,6 +100,10 @@
   gap: 18px;
   margin-bottom: 24px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.allFilters {
+  padding-left: 20px;
 }
 
 .receiving-filter {
@@ -123,6 +129,7 @@
   color: #333;
   outline: none;
 }
+
 .receiving-filter input:focus,
 .receiving-filter select:focus {
   border-color: #5e72d4;
@@ -168,14 +175,18 @@
   cursor: pointer;
   transition: 0.2s ease;
 }
+
 .filter-reset-btn:hover {
   background: #f4f5f7;
 }
+
 .filter-reset-btn svg {
   font-size: 16px;
 }
+
 .receiving-table-container {
-  width: 100%;
+  /* width: 100%; */
+  width: 1420px;
   background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
@@ -186,6 +197,12 @@
   width: 100%;
   border-collapse: collapse;
 }
+
+.allTable {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .receiving-table thead {
   background: #fafafa;
   background-color: #315fa5;
@@ -198,17 +215,21 @@
   color: white;
   white-space: nowrap;
 }
+
 .receiving-table td {
   padding: 17px 20px;
   border-top: 1px solid #eceef2;
   white-space: nowrap;
 }
+
 .receiving-table tbody tr {
   transition: 0.15s ease;
 }
+
 .receiving-table tbody tr:hover {
   background: #e5eafc;
 }
+
 .receiving-status {
   display: inline-block;
   padding: 6px 11px;
@@ -217,10 +238,12 @@
   font-size: 13px;
   font-weight: 500;
 }
+
 .receiving-status.completed {
   background: #dff3e7;
   color: #159447;
 }
+
 .receiving-status.pending {
   background: #fff0d0;
   color: #ed9400;
@@ -236,6 +259,7 @@
 .receiving-action:hover {
   color: #4d69c9 !important;
 }
+
 .receiving-action svg {
   vertical-align: middle;
 }
@@ -248,17 +272,20 @@
   align-items: center;
   border-top: 1px solid #eceef2;
 }
+
 .receiving-table-footer p {
   margin: 0;
   color: #667085;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
+
 .receiving-pagination {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 .receiving-pagination button {
   width: 38px;
   height: 38px;

@@ -1,6 +1,6 @@
 /* header */
 
-.head{
+.head {
   height: 100px;
   width: 100%;
   background-color: white;
@@ -9,20 +9,42 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 900;
+  transition: margin-left .3s ease, width .3s ease;
 }
-.icon{
+
+.mainContainer.sidebarOpen .head {
+  width: calc(100% - 270px);
+  margin-left: 270px;
+}
+
+.mainContainer.sidebarClosed .head {
+  width: 100%;
+  margin-left: 0;
+}
+
+.icon {
   font-size: 30px;
 }
-.headContent{
+
+.headContent {
   display: flex;
   justify-content: space-between;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0 20px;
   align-items: center;
 }
-.admin{
+
+.admin {
   display: flex;
   align-items: center;
   padding-right: 20px;
 }
+
+@media (max-width: 700px) {
+  .mainContainer.sidebarOpen .head {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 /* End header */

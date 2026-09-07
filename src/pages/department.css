@@ -1,0 +1,248 @@
+.department-page {
+  padding: 28px;
+  background: #E9EAED;
+  min-height: 100vh;
+  color: #1f2937;
+  padding-top: 110px;
+}
+.department-header {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.department-header h2 {
+  margin: 0;
+  font-size: 25px;
+}
+.department-header p,
+.table-toolbar p {
+  margin: 5px 0 0;
+  color: #737b8c;
+  font-size: 14px;
+}
+.add-department-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #315fa5;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.add-department-btn:hover {
+  opacity: 0.9;
+}
+.department-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.stat-card {
+  background: white;
+  border: 1px solid #e8eaf0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f3ff;
+  color: #315efb;
+  font-size: 19px;
+}
+.stat-card span {
+  display: block;
+  color: #7b8190;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.stat-card strong {
+  font-size: 23px;
+}
+.department-card {
+  background: white;
+  border: 1px solid #e7e9ef;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.table-toolbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9ebf0;
+}
+.table-toolbar h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.search-box {
+  width: 280px;
+  border: 1px solid #dfe2e8;
+  border-radius: 8px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #858b98;
+}
+.search-box input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  font-size: 14px;
+}
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.department-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 950px;
+}
+.department-table th {
+  background: #2B569A;
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 18px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e8eaf0;
+}
+.department-table td {
+  padding: 15px 18px;
+  border-bottom: 1px solid #edf0f3;
+  font-size: 14px;
+}
+.department-table tbody tr:hover {
+  background: #fafbff;
+}
+.department-name {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.department-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf2ff;
+  color: #315efb;
+}
+.department-name strong {
+  display: block;
+  font-size: 14px;
+}
+.department-name small {
+  display: block;
+  color: #8a909d;
+  margin-top: 3px;
+  font-size: 12px;
+}
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status.active {
+  background: #e7f7ee;
+  color: #218653;
+}
+.status.inactive {
+  background: #f1f2f4;
+  color: #737985;
+}
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.action-buttons button {
+  border: 0;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #656c7a;
+}
+.action-buttons button:hover {
+  background: #f0f2f6;
+}
+.action-buttons .delete-btn:hover {
+  color: #dc3545;
+  background: #fff0f1;
+}
+
+.pagination {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #777e8c;
+  font-size: 13px;
+}
+.pagination div {
+  display: flex;
+  gap: 5px;
+}
+.pagination button {
+  border: 1px solid #e0e3e9;
+  background: white;
+  padding: 7px 11px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pagination .current-page {
+  background: #315fa5;
+  border-color: #315efb;
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .department-header {
+    align-items: flex-start;
+    gap: 15px;
+    flex-direction: column;
+  }
+  .department-stats {
+    grid-template-columns: 1fr;
+  }
+  .table-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .search-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .pagination {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
