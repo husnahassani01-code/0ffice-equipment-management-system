@@ -11,8 +11,6 @@
   gap: 24px;
 }
 
-
-
 .stockHead{
   display: flex;
   justify-content: space-between;
@@ -100,7 +98,9 @@
   background-color: #315fa5;
   color: white;
   height: 50px;
- 
+}
+.tableStock tr td{
+  font-size: 14px;
 }
 #tp{
   padding-left: 15px;

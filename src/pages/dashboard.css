@@ -9,10 +9,10 @@
 .cardContainer{
   display: flex;
   justify-content: space-around;
-  padding-top: 30px;
+  padding-top: 5px;
   background-color: white;
   width: 360px;
-  height: 170px;
+  height: 150px;
   border-radius: 10px;
   box-shadow: 2px 2px 2px 2px rgb(197, 196, 196);
   font-size: 20px;
@@ -57,13 +57,13 @@
 .access{
   display: flex;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 10px;
   padding-bottom: 15px;
 }
 .cardInfo{
   display: grid;
   background-color: rgb(209, 235, 209);
-  height: 150px;
+  height: 145px;
   width: 300px;
   border-radius: 10px;
   justify-content: center;
@@ -75,7 +75,7 @@
   padding-right: 10px;
   width: 620px;
   border-radius: 20px;
-  height: 565px;
+  height: 520px;
   margin-top: 30px;
 }
 
@@ -91,7 +91,7 @@
   border-radius: 20px;
   text-align: center;
   text-align: start;
-  height: 570px;
+  height: 520px;
   padding-top: 5px;
   margin-top: 29px;
 }
@@ -113,6 +113,7 @@ tr td {
   padding: 5px 10px;
   vertical-align: middle;
   border-bottom: 1px solid #edf0f5;
+  font-size: 14px;
 }
 .tableContainer{
   display:flex;
