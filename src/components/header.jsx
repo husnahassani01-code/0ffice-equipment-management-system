@@ -1,10 +1,24 @@
+<<<<<<< HEAD
 import {
   BsJustify,
   BsPersonCircle
 } from "react-icons/bs";
 
 function Header({ onMenuClick }) {
+=======
+import {BsJustify, BsPersonCircle} from 'react-icons/bs'
+import './header.css'
 
+
+function Header({ onMenuClick, onLogout }) {
+>>>>>>> 894444045000230c6e5ffacc4a851fc6c568499c
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    onLogout();
+  };
   return (
     <div className="head">
 
@@ -16,6 +30,7 @@ function Header({ onMenuClick }) {
         >
           <BsJustify className="icon" />
         </div>
+<<<<<<< HEAD
 
         <div className="search">
 
@@ -33,14 +48,23 @@ function Header({ onMenuClick }) {
 
           <p>Admin</p>
 
+=======
+        <div className='admin'>
+          <BsPersonCircle className='icon'></BsPersonCircle>
+          <p onClick={handleLogout} style={{cursor:"pointer"}}>Logout</p>
+>>>>>>> 894444045000230c6e5ffacc4a851fc6c568499c
         </div>
 
       </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 894444045000230c6e5ffacc4a851fc6c568499c
     </div>
   );
 }
 
+<<<<<<< HEAD
 export default Header;
 
 
@@ -71,3 +95,6 @@ export default Header;
 // }
 
 // export default header
+=======
+export default Header
+>>>>>>> 894444045000230c6e5ffacc4a851fc6c568499c

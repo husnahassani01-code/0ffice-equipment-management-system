@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../assets/logo.png'
+import './login.css'
 
 const login = ({onLogin}) => {
   return (
@@ -31,10 +32,7 @@ const login = ({onLogin}) => {
                </div>
             </div>
         </div>
-
-
-      
-    </div>
+     </div>
   )
 }
 
