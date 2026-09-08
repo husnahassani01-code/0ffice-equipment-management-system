@@ -12,9 +12,7 @@ const receiving = () => {
           <h1>Receiving</h1>
           <p>Record items received into the organization</p>
         </div>
-        <button className="new-receiving-btn">
-          + New Receiving
-        </button>
+        <button className="new-receiving-btn">+ New Receiving</button>
       </div>
       <div className="receiving-cards">
         <div className="receiving-card">
@@ -31,7 +29,6 @@ const receiving = () => {
           <div className="receiving-card-icon">
             <BsCalendar3 />
           </div>
-
           <div>
             <p>This Month</p>
             <h2>24</h2>
@@ -42,7 +39,6 @@ const receiving = () => {
           <div className="receiving-card-icon">
             <BsClock />
           </div>
-
           <div>
             <p>Pending</p>
             <h2>5</h2>
@@ -227,10 +223,9 @@ const receiving = () => {
           </div>
         </div>
 
-     
 
-     
 
+        
     </div>
     
   )

@@ -417,7 +417,6 @@ const Dashboard = () => {
 
       {/* Recent Activity + Quick Actions */}
       <div className="dashboard-last-grid">
-
         {/* Activity */}
         <div className="dashboard-card activity-card">
           <div className="card-header">
@@ -425,21 +424,14 @@ const Dashboard = () => {
               <h3>Recent Activity</h3>
               <p>Latest system activity</p>
             </div>
-            <button className="view-all">
-              View All
-              <BsArrowRight />
-            </button>
+            <button className="view-all">View All<BsArrowRight /></button>
           </div>
           <div className="activity-list">
             <div className="activity-item">
-              <div className="activity-icon blue">
-                <BsLaptop />
-              </div>
+              <div className="activity-icon blue"><BsLaptop /></div>
               <div>
                 <strong>Dell Latitude 5520 issued</strong>
-                <span>
-                  John Smith · IT Department
-                </span>
+                <span>John Smith · IT Department</span>
               </div>
               <small>Today</small>
             </div>
@@ -449,9 +441,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <strong>HP LaserJet Pro transferred</strong>
-                <span>
-                  Sarah Johnson · HR Department
-                </span>
+                <span>Sarah Johnson · HR Department</span>
               </div>
               <small>Yesterday</small>
             </div>
@@ -461,9 +451,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <strong>Lenovo ThinkPad E14 returned</strong>
-                <span>
-                  Michael Brown · Finance
-                </span>
+                <span>Michael Brown · Finance</span>
               </div>
               <small>2 days ago</small>
             </div>
@@ -473,9 +461,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <strong>Keyboard reported damaged</strong>
-                <span>
-                  Emily Davis · Marketing
-                </span>
+                <span>Emily Davis · Marketing</span>
               </div>
               <small>3 days ago</small>
             </div>
@@ -496,9 +482,7 @@ const Dashboard = () => {
                 <BsBoxSeam />
               </div>
               <span>
-                <strong>Register Asset</strong>
-                Add new equipment
-              </span>
+                <strong>Register Asset</strong>Add new equipment</span>
               <BsArrowRight />
             </button>
             <button>

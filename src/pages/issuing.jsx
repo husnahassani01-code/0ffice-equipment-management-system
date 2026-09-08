@@ -12,9 +12,7 @@ const issuing = () => {
           <h1>Issuing</h1>
           <p>Record equipment issued to employees and departments</p>
         </div>
-        <button className="new-issuing-btn">
-          + New Issuing
-        </button>
+        <button className="new-issuing-btn">+ New Issuing</button>
       </div>
 
       <div className="issuing-cards">
@@ -86,14 +84,8 @@ const issuing = () => {
             <option>David Brown</option>
           </select>
         </div>
-        <button className="issuing-search-btn">
-          <BsSearch />
-          Search
-        </button>
-        <button className="issuing-reset-btn">
-          <BsArrowClockwise />
-          Reset
-        </button>
+        <button className="issuing-search-btn"><BsSearch />Search</button>
+        <button className="issuing-reset-btn"><BsArrowClockwise />Reset</button>
       </div>
 
       <div className="issuing-table-container">
@@ -119,9 +111,7 @@ const issuing = () => {
               <td>3</td>
               <td>Admin</td>
               <td>
-                <span className="issuing-status completed">
-                  Completed
-                </span>
+                <span className="issuing-status completed">Completed</span>
               </td>
               <td className="issuing-action">
                 <BsThreeDotsVertical />
@@ -136,9 +126,7 @@ const issuing = () => {
               <td>2</td>
               <td>Sarah</td>
               <td>
-                <span className="issuing-status completed">
-                  Completed
-                </span>
+                <span className="issuing-status completed">Completed</span>
               </td>
               <td className="issuing-action">
                 <BsThreeDotsVertical />
@@ -153,9 +141,7 @@ const issuing = () => {
               <td>4</td>
               <td>Admin</td>
               <td>
-                <span className="issuing-status completed">
-                  Completed
-                </span>
+                <span className="issuing-status completed">Completed</span>
               </td>
               <td className="issuing-action">
                 <BsThreeDotsVertical />
@@ -170,9 +156,7 @@ const issuing = () => {
               <td>1</td>
               <td>John</td>
               <td>
-                <span className="issuing-status pending">
-                  Pending
-                </span>
+                <span className="issuing-status pending">Pending</span>
               </td>
               <td className="issuing-action">
                 <BsThreeDotsVertical />
@@ -187,9 +171,7 @@ const issuing = () => {
               <td>2</td>
               <td>Admin</td>
               <td>
-                <span className="issuing-status completed">
-                  Completed
-                </span>
+                <span className="issuing-status completed">Completed</span>
               </td>
               <td className="issuing-action">
                 <BsThreeDotsVertical />
@@ -204,9 +186,7 @@ const issuing = () => {
               <td>3</td>
               <td>Sarah</td>
               <td>
-                <span className="issuing-status completed">
-                  Completed
-                </span>
+                <span className="issuing-status completed">Completed</span>
               </td>
               <td className="issuing-action">
                 <BsThreeDotsVertical />
@@ -216,14 +196,10 @@ const issuing = () => {
         </table>
 
         <div className="issuing-table-footer">
-          <p>
-            Showing 1 to 6 of 286 items
-          </p>
+          <p>Showing 1 to 6 of 286 items</p>
           <div className="issuing-pagination">
             <button>‹</button>
-            <button className="active-page">
-              1
-            </button>
+            <button className="active-page">1</button>
             <button>2</button>
             <button>3</button>
             <span>...</span>

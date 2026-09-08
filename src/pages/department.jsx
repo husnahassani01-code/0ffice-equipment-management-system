@@ -17,10 +17,7 @@ function department() {
           </div>
         </div>
 
-        <button className="add-department-btn">
-          <BsPlus size={20} />
-          Add Department
-        </button>
+        <button className="add-department-btn"> <BsPlus size={20} />Add Department</button>
       </div>
 
       <div className="department-stats">

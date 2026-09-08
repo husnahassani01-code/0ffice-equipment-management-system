@@ -11,9 +11,7 @@ function employee() {
           <h2>Employees</h2>
           <p>Manage organization employees</p>
         </div>
-        <button className="addEmployee">
-          + Add Employee
-        </button>
+        <button className="addEmployee">+ Add Employee</button>
       </div>
       <div className="employeeCards">
         <div className="employeeCard">

@@ -6,9 +6,7 @@
   height: 100vh;
   width: 100vw;
   font-family: Arial, Helvetica, sans-serif;
-
 }
-
 .loginForm{
   background-color: white;
   height: 400px;
@@ -37,7 +35,6 @@
   width: 120px;
   border-radius: 10px;
   color: white;
-  /* background-color: #3b81f2; */
   background-color: #2B569A;
   font-size: 15px;
   padding-left: 10px;
@@ -83,7 +80,7 @@
   font-size: 15px;
   border-radius: 10px;
   color: white;
-  
+
 }
 .formPb{
   display: flex;
