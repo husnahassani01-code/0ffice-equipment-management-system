@@ -453,18 +453,16 @@
 
 .recent-table th {
   padding: 11px 15px;
-  background: #fafbfd;
-  color: #8492a6;
+  background: #315fa5;
+  color: white;
   text-align: left;
-  font-size: 9px;
   font-weight: 600;
 }
 
 .recent-table td {
   padding: 12px 15px;
   border-top: 1px solid #eef1f5;
-  color: #53667f;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .recent-table td:first-child {
@@ -517,10 +515,8 @@
 .department-row {
   display: grid;
   grid-template-columns: 145px 1fr 25px;
-
   align-items: center;
   gap: 10px;
-
   margin-bottom: 18px;
 }
 
@@ -631,12 +627,12 @@
   margin-bottom: 4px;
 
   color: #304a6d;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .activity-item span {
   color: #8b9aae;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .activity-item small {
@@ -705,14 +701,14 @@
 .quick-actions button span {
   flex: 1;
   color: #8a99ad;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .quick-actions button strong {
   display: block;
   margin-bottom: 3px;
   color: #2f486a;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .quick-actions button > svg {
@@ -742,14 +738,6 @@
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
-  }
-
-  .dashboard-search {
-    width: 100%;
-  }
-
-  .dashboard-user {
-    justify-content: flex-end;
   }
 
   .welcome-banner {

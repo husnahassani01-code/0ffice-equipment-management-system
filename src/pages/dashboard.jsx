@@ -50,66 +50,46 @@ const Dashboard = () => {
             </span>
             <small>Currently held by employees</small>
           </div>
-
         </div>
-
         <div className="stat-card">
-
           <div className="stat-icon purple">
             <BsBoxes />
           </div>
-
           <div className="stat-info">
             <p>Available Stock</p>
             <h2>96</h2>
-
             <span className="positive">
               ↑ 5%
             </span>
-
             <small>Items available for issue</small>
           </div>
-
         </div>
-
         <div className="stat-card">
-
           <div className="stat-icon red">
             <BsExclamationTriangle />
           </div>
-
           <div className="stat-info">
             <p>Damaged / Lost</p>
             <h2>38</h2>
-
             <span className="negative">
               ↑ 3%
             </span>
-
             <small>Requires attention</small>
           </div>
-
         </div>
-
         <div className="stat-card">
-
           <div className="stat-icon cyan">
             <BsArrowRepeat />
           </div>
-
           <div className="stat-info">
             <p>Total Returns</p>
             <h2>120</h2>
-
             <span className="positive">
               ↑ 10%
             </span>
-
             <small>Returned equipment</small>
           </div>
-
         </div>
-
       </div>
 
       {/* Main Dashboard Grid */}
@@ -117,23 +97,17 @@ const Dashboard = () => {
 
         {/* Asset Movement */}
         <div className="dashboard-card movement-card">
-
           <div className="card-header">
-
             <div>
               <h3>Asset Movement Overview</h3>
               <p>Monthly equipment movements</p>
             </div>
-
             <select>
               <option>Last 6 Months</option>
               <option>Last 12 Months</option>
             </select>
-
           </div>
-
           <div className="chart-area">
-
             <div className="chart-y-axis">
               <span>80</span>
               <span>60</span>
@@ -141,9 +115,7 @@ const Dashboard = () => {
               <span>20</span>
               <span>0</span>
             </div>
-
             <div className="chart">
-
               <div className="chart-lines">
                 <span></span>
                 <span></span>
@@ -151,7 +123,6 @@ const Dashboard = () => {
                 <span></span>
                 <span></span>
               </div>
-
               <svg
                 className="line-chart"
                 viewBox="0 0 600 230"
@@ -163,7 +134,6 @@ const Dashboard = () => {
                   stroke="currentColor"
                   strokeWidth="4"
                 />
-
                 <polyline
                   points="0,190 100,165 200,145 300,160 400,140 500,115 600,90"
                   fill="none"
@@ -171,7 +141,6 @@ const Dashboard = () => {
                   strokeWidth="4"
                   className="return-line"
                 />
-
                 <polyline
                   points="0,210 100,195 200,180 300,195 400,175 500,155 600,135"
                   fill="none"
@@ -180,7 +149,6 @@ const Dashboard = () => {
                   className="transfer-line"
                 />
               </svg>
-
               <div className="chart-months">
                 <span>Mar</span>
                 <span>Apr</span>
@@ -189,57 +157,40 @@ const Dashboard = () => {
                 <span>Jul</span>
                 <span>Aug</span>
               </div>
-
             </div>
-
           </div>
-
           <div className="chart-legend">
-
             <span>
               <i className="legend-issued"></i>
               Issued
             </span>
-
             <span>
               <i className="legend-returned"></i>
               Returned
             </span>
-
             <span>
               <i className="legend-transferred"></i>
               Transferred
             </span>
-
           </div>
-
         </div>
 
         {/* Assets By Category */}
         <div className="dashboard-card category-card">
-
           <div className="card-header">
-
             <div>
               <h3>Assets by Category</h3>
               <p>Distribution of registered assets</p>
             </div>
-
           </div>
-
           <div className="category-content">
-
             <div className="donut-chart">
-
               <div className="donut-center">
                 <strong>348</strong>
                 <span>Total</span>
               </div>
-
             </div>
-
             <div className="category-list">
-
               <div className="category-item">
                 <span>
                   <i className="category-blue"></i>
@@ -247,7 +198,6 @@ const Dashboard = () => {
                 </span>
                 <strong>42%</strong>
               </div>
-
               <div className="category-item">
                 <span>
                   <i className="category-green"></i>
@@ -255,7 +205,6 @@ const Dashboard = () => {
                 </span>
                 <strong>18%</strong>
               </div>
-
               <div className="category-item">
                 <span>
                   <i className="category-orange"></i>
@@ -263,7 +212,6 @@ const Dashboard = () => {
                 </span>
                 <strong>15%</strong>
               </div>
-
               <div className="category-item">
                 <span>
                   <i className="category-purple"></i>
@@ -271,7 +219,6 @@ const Dashboard = () => {
                 </span>
                 <strong>12%</strong>
               </div>
-
               <div className="category-item">
                 <span>
                   <i className="category-gray"></i>
@@ -279,13 +226,9 @@ const Dashboard = () => {
                 </span>
                 <strong>13%</strong>
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
 
       {/* Bottom Grid */}
@@ -293,29 +236,21 @@ const Dashboard = () => {
 
         {/* Recent Movements */}
         <div className="dashboard-card recent-card">
-
           <div className="card-header">
-
             <div className="card-title-icon">
               <BsArrowLeftRight />
-
               <div>
                 <h3>Recent Asset Movements</h3>
                 <p>Latest equipment activity</p>
               </div>
             </div>
-
             <button className="view-all">
               View All
               <BsArrowRight />
             </button>
-
           </div>
-
           <div className="recent-table-wrapper">
-
             <table className="recent-table">
-
               <thead>
                 <tr>
                   <th>Asset</th>
@@ -326,9 +261,7 @@ const Dashboard = () => {
                   <th>Status</th>
                 </tr>
               </thead>
-
               <tbody>
-
                 <tr>
                   <td>Dell Latitude 5520</td>
                   <td>John Smith</td>
@@ -345,7 +278,6 @@ const Dashboard = () => {
                     </span>
                   </td>
                 </tr>
-
                 <tr>
                   <td>HP LaserJet Pro</td>
                   <td>Sarah Johnson</td>
@@ -361,7 +293,7 @@ const Dashboard = () => {
                       Completed
                     </span>
                   </td>
-                </tr>
+               </tr>
 
                 <tr>
                   <td>Lenovo ThinkPad E14</td>
@@ -424,96 +356,63 @@ const Dashboard = () => {
 
         {/* Department Overview */}
         <div className="dashboard-card department-card">
-
           <div className="card-header">
-
             <div className="card-title-icon">
               <BsBuilding />
-
               <div>
                 <h3>Department Overview</h3>
                 <p>Assets assigned by department</p>
               </div>
             </div>
-
           </div>
-
           <div className="department-list">
-
             <div className="department-row">
-
               <div className="department-name">
                 <span>Information Technology</span>
               </div>
-
               <div className="department-progress">
                 <div style={{ width: "90%" }}></div>
               </div>
-
               <strong>58</strong>
-
             </div>
-
             <div className="department-row">
-
               <div className="department-name">
                 <span>Operations</span>
               </div>
-
               <div className="department-progress">
                 <div style={{ width: "72%" }}></div>
               </div>
-
               <strong>47</strong>
-
             </div>
-
             <div className="department-row">
-
               <div className="department-name">
                 <span>Finance</span>
               </div>
-
               <div className="department-progress">
                 <div style={{ width: "55%" }}></div>
               </div>
-
               <strong>31</strong>
-
             </div>
-
             <div className="department-row">
-
               <div className="department-name">
                 <span>Human Resources</span>
               </div>
-
               <div className="department-progress">
                 <div style={{ width: "40%" }}></div>
               </div>
-
               <strong>22</strong>
-
             </div>
-
             <div className="department-row">
-
               <div className="department-name">
                 <span>Marketing</span>
               </div>
-
               <div className="department-progress">
                 <div style={{ width: "33%" }}></div>
               </div>
-
               <strong>19</strong>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
 
       {/* Recent Activity + Quick Actions */}
@@ -521,163 +420,118 @@ const Dashboard = () => {
 
         {/* Activity */}
         <div className="dashboard-card activity-card">
-
           <div className="card-header">
-
             <div>
               <h3>Recent Activity</h3>
               <p>Latest system activity</p>
             </div>
-
             <button className="view-all">
               View All
               <BsArrowRight />
             </button>
-
           </div>
-
           <div className="activity-list">
-
             <div className="activity-item">
-
               <div className="activity-icon blue">
                 <BsLaptop />
               </div>
-
               <div>
                 <strong>Dell Latitude 5520 issued</strong>
                 <span>
                   John Smith · IT Department
                 </span>
               </div>
-
               <small>Today</small>
-
             </div>
-
             <div className="activity-item">
-
               <div className="activity-icon purple">
                 <BsArrowLeftRight />
               </div>
-
               <div>
                 <strong>HP LaserJet Pro transferred</strong>
                 <span>
                   Sarah Johnson · HR Department
                 </span>
               </div>
-
               <small>Yesterday</small>
-
             </div>
-
             <div className="activity-item">
-
               <div className="activity-icon green">
                 <BsArrowRepeat />
               </div>
-
               <div>
                 <strong>Lenovo ThinkPad E14 returned</strong>
                 <span>
                   Michael Brown · Finance
                 </span>
               </div>
-
               <small>2 days ago</small>
-
             </div>
-
             <div className="activity-item">
-
               <div className="activity-icon red">
                 <BsExclamationTriangle />
               </div>
-
               <div>
                 <strong>Keyboard reported damaged</strong>
                 <span>
                   Emily Davis · Marketing
                 </span>
               </div>
-
               <small>3 days ago</small>
-
             </div>
-
           </div>
-
         </div>
 
         {/* Quick Actions */}
         <div className="dashboard-card quick-card">
-
           <div className="card-header">
-
             <div>
               <h3>Quick Actions</h3>
               <p>Frequently used operations</p>
             </div>
-
           </div>
-
           <div className="quick-actions">
-
             <button>
               <div className="quick-icon blue">
                 <BsBoxSeam />
               </div>
-
               <span>
                 <strong>Register Asset</strong>
                 Add new equipment
               </span>
-
               <BsArrowRight />
             </button>
-
             <button>
               <div className="quick-icon purple">
                 <BsBoxes />
               </div>
-
               <span>
                 <strong>Issue Asset</strong>
                 Assign equipment
               </span>
-
               <BsArrowRight />
             </button>
-
             <button>
               <div className="quick-icon green">
                 <BsArrowRepeat />
               </div>
-
               <span>
                 <strong>Return Asset</strong>
                 Record a return
               </span>
-
               <BsArrowRight />
             </button>
-
             <button>
               <div className="quick-icon red">
                 <BsExclamationTriangle />
               </div>
-
               <span>
                 <strong>Report Damage</strong>
                 Record damaged item
               </span>
-
               <BsArrowRight />
             </button>
-
           </div>
-
         </div>
 
       </div>
