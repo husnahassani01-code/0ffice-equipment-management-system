@@ -491,48 +491,7 @@ const Dashboard = () => {
               <h3>Quick Actions</h3>
               <p>Frequently used operations</p>
             </div>
-          </div>
-          <div className="quick-actions">
-            <button>
-              <div className="quick-icon blue">
-                <BsBoxSeam />
-              </div>
-              <span>
-                <strong>Register Asset</strong>
-                Add new equipment
-              </span>
-              <BsArrowRight />
-            </button>
-            <button>
-              <div className="quick-icon purple">
-                <BsBoxes />
-              </div>
-              <span>
-                <strong>Issue Asset</strong>
-                Assign equipment
-              </span>
-              <BsArrowRight />
-            </button>
-            <button>
-              <div className="quick-icon green">
-                <BsArrowRepeat />
-              </div>
-              <span>
-                <strong>Return Asset</strong>
-                Record a return
-              </span>
-              <BsArrowRight />
-            </button>
-            <button>
-              <div className="quick-icon red">
-                <BsExclamationTriangle />
-              </div>
-              <span>
-                <strong>Report Damage</strong>
-                Record damaged item
-              </span>
-              <BsArrowRight />
-            </button>
+
           </div>
         </div>
 
