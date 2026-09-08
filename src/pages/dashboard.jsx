@@ -17,7 +17,6 @@ const Dashboard = () => {
         <div>
           <h3>Good afternoon, Admin!</h3>
           <p>
-            Here's an overview of your office equipment and recent activities.
           </p>
         </div>
         <div className="welcome-graphic">
