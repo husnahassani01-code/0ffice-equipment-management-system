@@ -38,7 +38,6 @@ function assets() {
           </div>
         </div>
       </div>
-
       <div className="assetTable">
         <table>
           <thead>

@@ -15,6 +15,12 @@ import Transfer from './pages/transfer';
 import DamageLoss from './pages/damage/damage_loss';
 
 import './App.css';
+// import Receiving from './pages/receiving';
+// import Issuing from './pages/issuing';
+import Department from './pages/department';
+import Report from './pages/report';
+import './App.css'
+
 
 function App() {
     const [activePage, setActivePage] = useState('main');
@@ -48,6 +54,31 @@ function App() {
             </main>
         </div>
     );
+
+  return (
+    <BrowserRouter>
+     <div className= {`mainContainer ${sidebarOpen ? "sidebarOpen" : ""}`}>
+        <Header onMenuClick={toggleSidebar}  onLogout={handleLogout}/>
+        <Sidebar sidebarOpen={sidebarOpen}
+          setActivePage={setActivePage}/>
+        <main className='pageContent'>
+          {activePage === "dashboard" && <Dashboard />}
+          {activePage === "stock" && <Stock />}
+          {activePage === "assets" && <Assets />}
+          {activePage === "employee" && <Employee />}
+          {activePage === "receiving" && <Receiving />}
+          {activePage === "issuing" && <Issuing />}
+          {activePage === "department" && <Department />}
+          {activePage === "report" && <Report />}
+
+        </main>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          </Routes>
+      </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;
