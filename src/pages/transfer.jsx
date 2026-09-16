@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const products = [
   { id: 1, name: 'Dell Latitude 5440', serial: 'SN-998231', tag: 'TAG-8821', location: 'Main Store' },
   { id: 2, name: 'HP EliteBook 830', serial: 'SN9-110293', tag: 'TAG-5541', location: 'Branch Office' },
@@ -17,7 +18,10 @@ export default function EquipmentTransfer() {
     transferType: 'Permanent',
     reasonForTransfer: ''
   });
-
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+  useEffect(() => {
+    fetch('${API_URL}api/equipment')
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,191 +50,191 @@ export default function EquipmentTransfer() {
 
 
   return (
-  <div style={styles.container}>
-    {/* Header */}
-    <div style={styles.header}>
-      <div>
-        <span style={styles.subTitle}>INVENTORY MOVEMENT</span>
-        <h1 style={styles.mainTitle}>Equipment Transfer</h1>
-        <p style={styles.desc}>Log and track equipment relocation across sites.</p>
-      </div>
-      <div style={styles.badgeCard}>
-        <span style={styles.badgeNumber}>5</span>
-        <span style={styles.badgeText}>Transfers this month</span>
-      </div>
-    </div>
-
-
-    <div style={styles.grid}>
-
-      {/* Left Card: Form */}
-      <div style={styles.card}>
-        <div style={styles.cardHeader}>
-          <span style={styles.cardSub}>NEW TRANSFER</span>
-          <h2 style={styles.cardTitle}>Transfer Equipment</h2>
+    <div style={styles.container}>
+      {/* Header */}
+      <div style={styles.header}>
+        <div>
+          <span style={styles.subTitle}>INVENTORY MOVEMENT</span>
+          <h1 style={styles.mainTitle}>Equipment Transfer</h1>
+          <p style={styles.desc}>Log and track equipment relocation across sites.</p>
         </div>
+        <div style={styles.badgeCard}>
+          <span style={styles.badgeNumber}>5</span>
+          <span style={styles.badgeText}>Transfers this month</span>
+        </div>
+      </div>
 
-        <form onSubmit={handleSubmit} style={styles.form}>
 
-          <div style={styles.fieldGroup}>
-            <label style={styles.label}>Equipment Name</label>
-            <select
-              name="equipmentName"
-              value={formData.equipmentName}
-              onChange={handleChange}
-              style={styles.select}
-            >
-              <option value="">Select Equipment</option>
-              {products.map((product) => (
-                <option key={product.id} value={product.name}>
-                  {product.name}
-                </option>
-              ))}
-            </select>
+      <div style={styles.grid}>
+
+        {/* Left Card: Form */}
+        <div style={styles.card}>
+          <div style={styles.cardHeader}>
+            <span style={styles.cardSub}>NEW TRANSFER</span>
+            <h2 style={styles.cardTitle}>Transfer Equipment</h2>
           </div>
 
-          {/* Serial Number & Asset Tag */}
-          <div style={styles.row}>
-            <div style={styles.fieldGroup}>
-              <label style={styles.label}>Serial Number</label>
-              <input
-                type="text"
-                name="serialNumber"
-                value={formData.serialNumber}
-                onChange={handleChange}
-                placeholder="e.g. SN-998231"
-                style={styles.input}
-              />
-            </div>
-            <div style={styles.fieldGroup}>
-              <label style={styles.label}>Asset Tag Number</label>
-              <input
-                type="text"
-                name="assetTagNumber"
-                value={formData.assetTagNumber}
-                onChange={handleChange}
-                placeholder="e.g. TAG-8821"
-                style={styles.input}
-              />
-            </div>
-          </div>
+          <form onSubmit={handleSubmit} style={styles.form}>
 
-          {/* Condition */}
-          <div style={styles.fieldGroup}>
-            <label style={styles.label}>Equipment Condition</label>
-            <select
-              name="equipmentCondition"
-              value={formData.equipmentCondition}
-              onChange={handleChange}
-              style={styles.select}
-            >
-              <option value="Good Working Condition">Good Working Condition</option>
-              <option value="Needs Maintenance">Needs Maintenance</option>
-              <option value="Damaged">Damaged</option>
-            </select>
-          </div>
-
-          {/* Source & Destination */}
-          <div style={styles.row}>
             <div style={styles.fieldGroup}>
-              <label style={styles.label}>Current Location (From)</label>
-              <input
-                type="text"
-                name="currentLocation"
-                value={formData.currentLocation}
-                onChange={handleChange}
-                placeholder="Main Store"
-                style={styles.input}
-              />
-            </div>
-            <div style={styles.fieldGroup}>
-              <label style={styles.label}>Destination (To)</label>
-              <input
-                type="text"
-                name="destinationLocation"
-                value={formData.destinationLocation}
-                onChange={handleChange}
-                placeholder="HQ Office"
-                style={styles.input}
-              />
-            </div>
-          </div>
-
-          {/* Type & Reason */}
-          <div style={styles.row}>
-            <div style={styles.fieldGroup}>
-              <label style={styles.label}>Transfer Type</label>
+              <label style={styles.label}>Equipment Name</label>
               <select
-                name="transferType"
-                value={formData.transferType}
+                name="equipmentName"
+                value={formData.equipmentName}
                 onChange={handleChange}
                 style={styles.select}
               >
-                <option value="Permanent">Permanent</option>
-                <option value="Temporary">Temporary</option>
+                <option value="">Select Equipment</option>
+                {products.map((product) => (
+                  <option key={product.id} value={product.name}>
+                    {product.name}
+                  </option>
+                ))}
               </select>
             </div>
-            <div style={styles.fieldGroup}>
-              <label style={styles.label}>Reason for Transfer</label>
-              <input
-                type="text"
-                name="reasonForTransfer"
-                value={formData.reasonForTransfer}
-                onChange={handleChange}
-                placeholder="Site Allocation"
-                style={styles.input}
-              />
+
+            {/* Serial Number & Asset Tag */}
+            <div style={styles.row}>
+              <div style={styles.fieldGroup}>
+                <label style={styles.label}>Serial Number</label>
+                <input
+                  type="text"
+                  name="serialNumber"
+                  value={formData.serialNumber}
+                  onChange={handleChange}
+                  placeholder="e.g. SN-998231"
+                  style={styles.input}
+                />
+              </div>
+              <div style={styles.fieldGroup}>
+                <label style={styles.label}>Asset Tag Number</label>
+                <input
+                  type="text"
+                  name="assetTagNumber"
+                  value={formData.assetTagNumber}
+                  onChange={handleChange}
+                  placeholder="e.g. TAG-8821"
+                  style={styles.input}
+                />
+              </div>
             </div>
-          </div>
 
-          <button type="submit" style={styles.submitBtn}>
-            Submit Transfer
-          </button>
-        </form>
-      </div>
+            {/* Condition */}
+            <div style={styles.fieldGroup}>
+              <label style={styles.label}>Equipment Condition</label>
+              <select
+                name="equipmentCondition"
+                value={formData.equipmentCondition}
+                onChange={handleChange}
+                style={styles.select}
+              >
+                <option value="Good Working Condition">Good Working Condition</option>
+                <option value="Needs Maintenance">Needs Maintenance</option>
+                <option value="Damaged">Damaged</option>
+              </select>
+            </div>
 
-      {/* Right Card: Transfer History (Table / Column Format) */}
-      <div style={styles.card}>
-        <div style={styles.cardHeader}>
-          <span style={styles.cardSub}>RECENT ACTIVITY</span>
-          <h2 style={styles.cardTitle}>Transfer history</h2>
+            {/* Source & Destination */}
+            <div style={styles.row}>
+              <div style={styles.fieldGroup}>
+                <label style={styles.label}>Current Location (From)</label>
+                <input
+                  type="text"
+                  name="currentLocation"
+                  value={formData.currentLocation}
+                  onChange={handleChange}
+                  placeholder="Main Store"
+                  style={styles.input}
+                />
+              </div>
+              <div style={styles.fieldGroup}>
+                <label style={styles.label}>Destination (To)</label>
+                <input
+                  type="text"
+                  name="destinationLocation"
+                  value={formData.destinationLocation}
+                  onChange={handleChange}
+                  placeholder="HQ Office"
+                  style={styles.input}
+                />
+              </div>
+            </div>
+
+            {/* Type & Reason */}
+            <div style={styles.row}>
+              <div style={styles.fieldGroup}>
+                <label style={styles.label}>Transfer Type</label>
+                <select
+                  name="transferType"
+                  value={formData.transferType}
+                  onChange={handleChange}
+                  style={styles.select}
+                >
+                  <option value="Permanent">Permanent</option>
+                  <option value="Temporary">Temporary</option>
+                </select>
+              </div>
+              <div style={styles.fieldGroup}>
+                <label style={styles.label}>Reason for Transfer</label>
+                <input
+                  type="text"
+                  name="reasonForTransfer"
+                  value={formData.reasonForTransfer}
+                  onChange={handleChange}
+                  placeholder="Site Allocation"
+                  style={styles.input}
+                />
+              </div>
+            </div>
+
+            <button type="submit" style={styles.submitBtn}>
+              Submit Transfer
+            </button>
+          </form>
         </div>
 
-        <table style={styles.table}>
-          <thead>
-            <tr style={styles.tableHeaderRow}>
-              <th style={styles.th}>S/N</th>
-              <th style={styles.th}>Equipment</th>
-              <th style={styles.th}>Route</th>
-              <th style={styles.th}>Serial Number</th>
-              <th style={styles.th}>TAG</th>
-              <th style={styles.th}>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product, index) => (
-              <tr key={product.id} style={styles.tableRow}>
-                <td style={styles.td}>{index + 1}</td>
-                <td style={styles.td}>
-                  <span style={styles.itemTitle}>{product.name}</span>
-                </td>
-                <td style={styles.tdRoute}>
-                  <span style={styles.itemTitle}>{product.location}</span>
-                </td>
-                <td style={styles.td}>{product.serial}</td>
-                <td style={styles.td}>{product.tag}</td>
-                <td style={styles.td}>
-                  <span style={styles.tagCompleted}>Completed</span>
-                </td>
+        {/* Right Card: Transfer History (Table / Column Format) */}
+        <div style={styles.card}>
+          <div style={styles.cardHeader}>
+            <span style={styles.cardSub}>RECENT ACTIVITY</span>
+            <h2 style={styles.cardTitle}>Transfer history</h2>
+          </div>
+
+          <table style={styles.table}>
+            <thead>
+              <tr style={styles.tableHeaderRow}>
+                <th style={styles.th}>S/N</th>
+                <th style={styles.th}>Equipment</th>
+                <th style={styles.th}>Route</th>
+                <th style={styles.th}>Serial Number</th>
+                <th style={styles.th}>TAG</th>
+                <th style={styles.th}>Status</th>
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {products.map((product, index) => (
+                <tr key={product.id} style={styles.tableRow}>
+                  <td style={styles.td}>{index + 1}</td>
+                  <td style={styles.td}>
+                    <span style={styles.itemTitle}>{product.name}</span>
+                  </td>
+                  <td style={styles.tdRoute}>
+                    <span style={styles.itemTitle}>{product.location}</span>
+                  </td>
+                  <td style={styles.td}>{product.serial}</td>
+                  <td style={styles.td}>{product.tag}</td>
+                  <td style={styles.td}>
+                    <span style={styles.tagCompleted}>Completed</span>
+                  </td>
+                </tr>
+              ))}
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
+
       </div>
-
-    </div>
-  </div >
+    </div >
   );
 }
 
