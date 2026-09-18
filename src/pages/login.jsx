@@ -56,7 +56,7 @@ export default function Login({ onLogin, onSwitchToRegister }) {
          <div className='loginForm'>
             {logo && (
                <div>
-                  <img src={logo} alt="Logo" id='logoForm' />
+                  <img src={fi9k logo} alt="Logo" id='logoForm' />
                </div>
             )}
             <form className='inputs' onSubmit={handleSubmit}>
