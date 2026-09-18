@@ -366,6 +366,173 @@ function Dashboard() {
 
         </div>
 
+<<<<<<< HEAD
+=======
+        {/* Department Overview */}
+        <div className="dashboard-card department-card">
+          <div className="card-header">
+            <div className="card-title-icon">
+              <BsBuilding />
+              <div>
+                <h3>Department Overview</h3>
+                <p>Assets assigned by department</p>
+              </div>
+            </div>
+          </div>
+          <div className="department-list">
+            <div className="department-row">
+              <div className="department-name">
+                <span>Information Technology</span>
+              </div>
+              <div className="department-progress">
+                <div style={{ width: "90%" }}></div>
+              </div>
+              <strong>58</strong>
+            </div>
+            <div className="department-row">
+              <div className="department-name">
+                <span>Operations</span>
+              </div>
+              <div className="department-progress">
+                <div style={{ width: "72%" }}></div>
+              </div>
+              <strong>47</strong>
+            </div>
+            <div className="department-row">
+              <div className="department-name">
+                <span>Finance</span>
+              </div>
+              <div className="department-progress">
+                <div style={{ width: "55%" }}></div>
+              </div>
+              <strong>31</strong>
+            </div>
+            <div className="department-row">
+              <div className="department-name">
+                <span>Human Resources</span>
+              </div>
+              <div className="department-progress">
+                <div style={{ width: "40%" }}></div>
+              </div>
+              <strong>22</strong>
+            </div>
+            <div className="department-row">
+              <div className="department-name">
+                <span>Marketing</span>
+              </div>
+              <div className="department-progress">
+                <div style={{ width: "33%" }}></div>
+              </div>
+              <strong>19</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Recent Activity + Quick Actions */}
+      <div className="dashboard-last-grid">
+        {/* Activity */}
+        <div className="dashboard-card activity-card">
+          <div className="card-header">
+            <div>
+              <h3>Recent Activity</h3>
+              <p>Latest system activity</p>
+            </div>
+            <button className="view-all">View All<BsArrowRight /></button>
+          </div>
+          <div className="activity-list">
+            <div className="activity-item">
+              <div className="activity-icon blue"><BsLaptop /></div>
+              <div>
+                <strong>Dell Latitude 5520 issued</strong>
+                <span>John Smith · IT Department</span>
+              </div>
+              <small>Today</small>
+            </div>
+            <div className="activity-item">
+              <div className="activity-icon purple">
+                <BsArrowLeftRight />
+              </div>
+              <div>
+                <strong>HP LaserJet Pro transferred</strong>
+                <span>Sarah Johnson · HR Department</span>
+              </div>
+              <small>Yesterday</small>
+            </div>
+            <div className="activity-item">
+              <div className="activity-icon green">
+                <BsArrowRepeat />
+              </div>
+              <div>
+                <strong>Lenovo ThinkPad E14 returned</strong>
+                <span>Michael Brown · Finance</span>
+              </div>
+              <small>2 days ago</small>
+            </div>
+            <div className="activity-item">
+              <div className="activity-icon red">
+                <BsExclamationTriangle />
+              </div>
+              <div>
+                <strong>Keyboard reported damaged</strong>
+                <span>Emily Davis · Marketing</span>
+              </div>
+              <small>3 days ago</small>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="dashboard-card quick-card">
+          <div className="card-header">
+            <div>
+              <h3>Quick Actions</h3>
+              <p>Frequently used operations</p>
+            </div>
+          </div>
+          <div className="quick-actions">
+            <button>
+              <div className="quick-icon blue">
+                <BsBoxSeam />
+              </div>
+              <span>
+                <strong>Register Asset</strong>Add new equipment</span>
+              <BsArrowRight />
+            </button>
+            <button>
+              <div className="quick-icon purple">
+                <BsBoxes />
+              </div>
+              <span>
+                <strong>Issue Asset</strong>
+                Assign equipment
+              </span>
+              <BsArrowRight />
+            </button>
+            <button>
+              <div className="quick-icon green">
+                <BsArrowRepeat />
+              </div>
+              <span>
+                <strong>Return Asset</strong>
+                Record a return
+              </span>
+              <BsArrowRight />
+            </button>
+            <button>
+              <div className="quick-icon red">
+                <BsExclamationTriangle />
+              </div>
+              <span>
+                <strong>Report Damage</strong>
+                Record damaged item
+              </span>
+              <BsArrowRight />
+            </button>
+          </div>
+        </div>
+
+>>>>>>> a5711a62cb3d834dc3d22062a2feeaabf3ee6f0d
       </div>
 
     </div>

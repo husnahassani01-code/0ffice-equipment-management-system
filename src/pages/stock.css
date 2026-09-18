@@ -37,14 +37,14 @@
 .CardItems{
   height: 150px;
   width: 370px;
-  border-radius: 1px solid black;
+  border-radius: 2px solid black;
   padding-left: 20px;
   background-color: white;
-  box-shadow: 2px rgb(220, 219, 220);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
 }
 .icon4{
-  font-size: 70px;
+  font-size: 100px;
   padding-top: 25px;
   color: rgb(40, 119, 229);
 }
