@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
-import './login.css';
-=======
-// import React from 'react'
-import logo from '../assets/logo.png'
 import './login.css'
->>>>>>> a5711a62cb3d834dc3d22062a2feeaabf3ee6f0d
 
 export default function Login({ onLogin, onSwitchToRegister }) {
    const [formData, setFORMData] = useState({
