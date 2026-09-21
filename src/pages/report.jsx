@@ -478,7 +478,7 @@ const Report = () => {
               and asset movements.
             </p>
           </div>
-
+You can use axios in your project in a few different ways. The most common way is to install it from npm and include it in your project. But we also support jsDelivr, unpkg, and more.
         </div>
 
         <div className="report-header-actions">
