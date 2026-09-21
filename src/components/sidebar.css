@@ -4,7 +4,7 @@
   background-color: #2B569A;
   color: white;
   height: 100vh;
-  width: 270px;
+  width: 280px;
   position: fixed;  
   overflow-y: auto;
   overflow-x: hidden;
@@ -14,14 +14,14 @@
   transition: 1s;
 }
 .mainContainer:not(.sidebarOpen) .asides {
-  left: -270px;
+  left: -280px;
 }
 
 .mainContainer:not(.sidebarOpen) .pageContent {
   margin-left: 0px;
 }
 .mainContainer:is(.sidebarOpen) .headContent {
-  margin-left: 270px; 
+  margin-left: 280px; 
 }
 #sdImage{
   height: 80px;

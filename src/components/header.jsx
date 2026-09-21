@@ -14,7 +14,7 @@ function Header({ onMenuClick, onLogout }) {
     <div className='head'>
       <div className="headContent">
         <div className="menu-button" onClick={onMenuClick}>
-         <BsJustify className="icon" />
+         <BsJustify className="icon1" />
         </div>
         <div className='admin'>
           <BsPersonCircle className='icon'></BsPersonCircle>

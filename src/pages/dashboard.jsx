@@ -1,525 +1,591 @@
-// import React from "react";
-import {BsBoxSeam,BsCheckCircle,BsBoxes,BsExclamationTriangle,BsArrowRepeat,BsGraphUpArrow,
-BsArrowRight,BsLaptop,BsBuilding,BsArrowLeftRight,} from "react-icons/bs";
+import React, { useState } from "react";
+import {
+  BsBoxSeam,
+  BsPeople,
+  BsBuilding,
+  BsLaptop,
+  BsArrowUpRight,
+  BsArrowDownLeft,
+  BsExclamationTriangleFill,
+  BsCheckCircleFill,
+  BsClockHistory,
+  BsGraphUpArrow,
+  BsGraphDownArrow,
+  BsThreeDotsVertical,
+  BsCalendar3,
+  BsSearch,
+  BsChevronRight,
+  BsClipboardCheck,
+  BsWrenchAdjustableCircle,
+  BsPersonCheck,
+} from "react-icons/bs";
 import "./dashboard.css";
 
 const Dashboard = () => {
+  const [period, setPeriod] = useState("This Month");
+  const [search, setSearch] = useState("");
+
+  const stats = [
+    {
+      title: "Total Assets",
+      value: "248",
+      change: "+12",
+      label: "from last month",
+      icon: <BsBoxSeam />,
+      type: "up",
+    },
+    {
+      title: "Available Assets",
+      value: "164",
+      change: "+8",
+      label: "from last month",
+      icon: <BsCheckCircleFill />,
+      type: "up",
+    },
+    {
+      title: "Issued Assets",
+      value: "72",
+      change: "+5",
+      label: "from last month",
+      icon: <BsLaptop />,
+      type: "up",
+    },
+    {
+      title: "Maintenance",
+      value: "12",
+      change: "-3",
+      label: "from last month",
+      icon: <BsWrenchAdjustableCircle />,
+      type: "down",
+    },
+  ];
+
+  const departments = [
+    { name: "ICT Department", count: 72, percent: 80 },
+    { name: "Finance", count: 46, percent: 64 },
+    { name: "Human Resources", count: 35, percent: 52 },
+    { name: "Administration", count: 29, percent: 42 },
+    { name: "Management", count: 21, percent: 32 },
+    { name: "Procurement", count: 18, percent: 27 },
+  ];
+
+  const activities = [
+    {
+      icon: <BsArrowUpRight />,
+      title: "Laptop issued",
+      description: "Asset AST-1024 issued to John Michael",
+      time: "10 minutes ago",
+      type: "issue",
+    },
+    {
+      icon: <BsArrowDownLeft />,
+      title: "Equipment returned",
+      description: "Projector AST-0089 returned to store",
+      time: "35 minutes ago",
+      type: "return",
+    },
+    {
+      icon: <BsExclamationTriangleFill />,
+      title: "Damage reported",
+      description: "Monitor AST-0132 reported as damaged",
+      time: "1 hour ago",
+      type: "warning",
+    },
+    {
+      icon: <BsCheckCircleFill />,
+      title: "Asset received",
+      description: "10 new laptops received from supplier",
+      time: "2 hours ago",
+      type: "success",
+    },
+    {
+      icon: <BsWrenchAdjustableCircle />,
+      title: "Maintenance completed",
+      description: "Printer AST-0057 maintenance completed",
+      time: "3 hours ago",
+      type: "maintenance",
+    },
+  ];
+
+  const assets = [
+    {
+      tag: "AST-1024",
+      name: "Dell Latitude 5440",
+      category: "Laptop",
+      department: "ICT",
+      serial: "DL5440-98324",
+      condition: "Good",
+      status: "Issued",
+      location: "ICT Office",
+    },
+    {
+      tag: "AST-1023",
+      name: "HP ProBook 450",
+      category: "Laptop",
+      department: "Finance",
+      serial: "HP450-78231",
+      condition: "Excellent",
+      status: "Available",
+      location: "Main Store",
+    },
+    {
+      tag: "AST-1022",
+      name: "Dell P2422H",
+      category: "Monitor",
+      department: "HR",
+      serial: "DLP2422-4521",
+      condition: "Good",
+      status: "Issued",
+      location: "HR Office",
+    },
+    {
+      tag: "AST-1021",
+      name: "Epson EB-X06",
+      category: "Projector",
+      department: "Admin",
+      serial: "EPX06-87212",
+      condition: "Good",
+      status: "Available",
+      location: "Main Store",
+    },
+    {
+      tag: "AST-1020",
+      name: "HP LaserJet Pro",
+      category: "Printer",
+      department: "Finance",
+      serial: "HPLJ-65482",
+      condition: "Fair",
+      status: "Maintenance",
+      location: "Finance Office",
+    },
+  ];
+
+  const filteredAssets = assets.filter((asset) =>
+    `${asset.tag} ${asset.name} ${asset.category} ${asset.department}`
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
+
+  const quickActions = [
+    {
+      title: "Manage Assets",
+      description: "View and manage equipment",
+      icon: <BsBoxSeam />,
+      link: "/assets",
+    },
+    {
+      title: "Issue Equipment",
+      description: "Assign equipment to employee",
+      icon: <BsArrowUpRight />,
+      link: "/issuing",
+    },
+    {
+      title: "Receive Equipment",
+      description: "Record returned equipment",
+      icon: <BsArrowDownLeft />,
+      link: "/receiving",
+    },
+    {
+      title: "Damage / Lost",
+      description: "Report damaged or lost item",
+      icon: <BsExclamationTriangleFill />,
+      link: "/damage-lost",
+    },
+  ];
+
+  const handleAction = (link) => {
+    window.location.href = link;
+  };
+
   return (
-    <div className="dashboard">
-      <div>
-        <h2>Dashbord</h2>
-      </div>
+    <div className="dashboard-page">
+      <div className="dashboard-container">
+        {/* Header */}
+        <div className="dashboard-header">
+          <div>
+            <h1>Dashboard</h1>
+            <p>Overview of your equipment and asset management system</p>
+          </div>
 
-      {/* Welcome Banner */}
-      <div className="welcome-banner">
-        <div>
-          <h3>Good afternoon, Admin!</h3>
-          <p>
-            Here's an overview of your office equipment and recent activities.
-          </p>
-        </div>
-        <div className="welcome-graphic">
-          <BsGraphUpArrow />
-        </div>
-      </div>
-
-      {/* Statistics */}
-      <div className="stats-grid">
-        <div className="stat-card">
-          <div className="stat-icon blue">
-            <BsBoxSeam />
-          </div>
-          <div className="stat-info">
-            <p>Total Assets</p>
-            <h2>348</h2>
-            <span className="positive">
-              ↑ 12%
-            </span>
-            <small>All registered assets</small>
-          </div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-icon green">
-            <BsCheckCircle />
-          </div>
-          <div className="stat-info">
-            <p>Assigned Assets</p>
-            <h2>214</h2>
-            <span className="positive">
-              ↑ 8%
-            </span>
-            <small>Currently held by employees</small>
-          </div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-icon purple">
-            <BsBoxes />
-          </div>
-          <div className="stat-info">
-            <p>Available Stock</p>
-            <h2>96</h2>
-            <span className="positive">
-              ↑ 5%
-            </span>
-            <small>Items available for issue</small>
-          </div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-icon red">
-            <BsExclamationTriangle />
-          </div>
-          <div className="stat-info">
-            <p>Damaged / Lost</p>
-            <h2>38</h2>
-            <span className="negative">
-              ↑ 3%
-            </span>
-            <small>Requires attention</small>
-          </div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-icon cyan">
-            <BsArrowRepeat />
-          </div>
-          <div className="stat-info">
-            <p>Total Returns</p>
-            <h2>120</h2>
-            <span className="positive">
-              ↑ 10%
-            </span>
-            <small>Returned equipment</small>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Dashboard Grid */}
-      <div className="dashboard-main-grid">
-
-        {/* Asset Movement */}
-        <div className="dashboard-card movement-card">
-          <div className="card-header">
-            <div>
-              <h3>Asset Movement Overview</h3>
-              <p>Monthly equipment movements</p>
+          <div className="dashboard-controls">
+            <div className="date-control">
+              <BsCalendar3 />
+              <span>September 2026</span>
             </div>
-            <select>
-              <option>Last 6 Months</option>
-              <option>Last 12 Months</option>
+
+            <select
+              value={period}
+              onChange={(e) => setPeriod(e.target.value)}
+              className="period-select"
+            >
+              <option>This Month</option>
+              <option>This Week</option>
+              <option>This Year</option>
             </select>
           </div>
-          <div className="chart-area">
-            <div className="chart-y-axis">
-              <span>80</span>
-              <span>60</span>
-              <span>40</span>
-              <span>20</span>
-              <span>0</span>
-            </div>
-            <div className="chart">
-              <div className="chart-lines">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <svg
-                className="line-chart"
-                viewBox="0 0 600 230"
-                preserveAspectRatio="none"
-              >
-                <polyline
-                  points="0,170 100,145 200,100 300,130 400,95 500,70 600,45"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <polyline
-                  points="0,190 100,165 200,145 300,160 400,140 500,115 600,90"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  className="return-line"
-                />
-                <polyline
-                  points="0,210 100,195 200,180 300,195 400,175 500,155 600,135"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  className="transfer-line"
-                />
-              </svg>
-              <div className="chart-months">
-                <span>Mar</span>
-                <span>Apr</span>
-                <span>May</span>
-                <span>Jun</span>
-                <span>Jul</span>
-                <span>Aug</span>
-              </div>
-            </div>
-          </div>
-          <div className="chart-legend">
-            <span>
-              <i className="legend-issued"></i>
-              Issued
-            </span>
-            <span>
-              <i className="legend-returned"></i>
-              Returned
-            </span>
-            <span>
-              <i className="legend-transferred"></i>
-              Transferred
-            </span>
-          </div>
         </div>
 
-        {/* Assets By Category */}
-        <div className="dashboard-card category-card">
-          <div className="card-header">
-            <div>
-              <h3>Assets by Category</h3>
-              <p>Distribution of registered assets</p>
+        {/* Statistics */}
+        <div className="stats-grid">
+          {stats.map((stat, index) => (
+            <div className="stat-card" key={index}>
+              <div className="stat-top">
+                <div className={`stat-icon stat-${index}`}>
+                  {stat.icon}
+                </div>
+
+                <button className="more-btn">
+                  <BsThreeDotsVertical />
+                </button>
+              </div>
+
+              <div className="stat-title">{stat.title}</div>
+
+              <div className="stat-bottom">
+                <strong>{stat.value}</strong>
+
+                <div className={`stat-change ${stat.type}`}>
+                  {stat.type === "up" ? (
+                    <BsGraphUpArrow />
+                  ) : (
+                    <BsGraphDownArrow />
+                  )}
+                  {stat.change}
+                </div>
+              </div>
+
+              <span className="stat-label">{stat.label}</span>
             </div>
-          </div>
-          <div className="category-content">
-            <div className="donut-chart">
-              <div className="donut-center">
-                <strong>348</strong>
-                <span>Total</span>
-              </div>
-            </div>
-            <div className="category-list">
-              <div className="category-item">
-                <span>
-                  <i className="category-blue"></i>
-                  Laptops
-                </span>
-                <strong>42%</strong>
-              </div>
-              <div className="category-item">
-                <span>
-                  <i className="category-green"></i>
-                  Monitors
-                </span>
-                <strong>18%</strong>
-              </div>
-              <div className="category-item">
-                <span>
-                  <i className="category-orange"></i>
-                  Printers
-                </span>
-                <strong>15%</strong>
-              </div>
-              <div className="category-item">
-                <span>
-                  <i className="category-purple"></i>
-                  Mobile Phones
-                </span>
-                <strong>12%</strong>
-              </div>
-              <div className="category-item">
-                <span>
-                  <i className="category-gray"></i>
-                  Others
-                </span>
-                <strong>13%</strong>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </div>
 
-      {/* Bottom Grid */}
-      <div className="dashboard-bottom-grid">
-
-        {/* Recent Movements */}
-        <div className="dashboard-card recent-card">
-          <div className="card-header">
-            <div className="card-title-icon">
-              <BsArrowLeftRight />
+        {/* Main Grid */}
+        <div className="dashboard-main-grid">
+          {/* Asset Overview */}
+          <div className="dashboard-card overview-card">
+            <div className="card-header">
               <div>
-                <h3>Recent Asset Movements</h3>
-                <p>Latest equipment activity</p>
+                <h3>Asset Overview</h3>
+                <p>Current equipment status</p>
+              </div>
+
+              <BsThreeDotsVertical />
+            </div>
+
+            <div className="overview-content">
+              <div className="donut-wrapper">
+                <div className="donut-chart">
+                  <div className="donut-center">
+                    <strong>248</strong>
+                    <span>Total</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="overview-list">
+                <div className="overview-item">
+                  <span className="overview-dot available"></span>
+                  <div>
+                    <strong>164</strong>
+                    <span>Available</span>
+                  </div>
+                </div>
+
+                <div className="overview-item">
+                  <span className="overview-dot issued"></span>
+                  <div>
+                    <strong>72</strong>
+                    <span>Issued</span>
+                  </div>
+                </div>
+
+                <div className="overview-item">
+                  <span className="overview-dot maintenance"></span>
+                  <div>
+                    <strong>12</strong>
+                    <span>Maintenance</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <button className="view-all">
-              View All
-              <BsArrowRight />
-            </button>
           </div>
-          <div className="recent-table-wrapper">
-            <table className="recent-table">
+
+          {/* Quick Actions */}
+          <div className="dashboard-card quick-card">
+            <div className="card-header">
+              <div>
+                <h3>Quick Actions</h3>
+                <p>Common management tasks</p>
+              </div>
+            </div>
+
+            <div className="quick-actions">
+              {quickActions.map((action, index) => (
+                <button
+                  key={index}
+                  className="quick-action"
+                  onClick={() => handleAction(action.link)}
+                >
+                  <div className={`quick-icon quick-${index}`}>
+                    {action.icon}
+                  </div>
+
+                  <div className="quick-text">
+                    <strong>{action.title}</strong>
+                    <span>{action.description}</span>
+                  </div>
+
+                  <BsChevronRight className="quick-arrow" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Department + Activity */}
+        <div className="dashboard-two-column">
+          <div className="dashboard-card">
+            <div className="card-header">
+              <div>
+                <h3>Assets by Department</h3>
+                <p>Equipment distribution</p>
+              </div>
+              <BsBuilding />
+            </div>
+
+            <div className="department-list">
+              {departments.map((department, index) => (
+                <div className="department-row" key={index}>
+                  <div className="department-info">
+                    <span>{department.name}</span>
+                    <strong>{department.count}</strong>
+                  </div>
+
+                  <div className="department-progress">
+                    <div
+                      className="department-progress-fill"
+                      style={{ width: `${department.percent}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="dashboard-card">
+            <div className="card-header">
+              <div>
+                <h3>Recent Activity</h3>
+                <p>Latest system activities</p>
+              </div>
+
+              <BsClockHistory />
+            </div>
+
+            <div className="activity-list">
+              {activities.map((activity, index) => (
+                <div className="activity-item" key={index}>
+                  <div className={`activity-icon ${activity.type}`}>
+                    {activity.icon}
+                  </div>
+
+                  <div className="activity-content">
+                    <strong>{activity.title}</strong>
+                    <span>{activity.description}</span>
+                    <small>{activity.time}</small>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Recent Assets */}
+        <div className="dashboard-card recent-assets-card">
+          <div className="card-header recent-header">
+            <div>
+              <h3>Recent Assets</h3>
+              <p>Recently added or updated equipment</p>
+            </div>
+
+            <div className="recent-actions">
+              <div className="dashboard-search">
+                <BsSearch />
+                <input
+                  type="text"
+                  placeholder="Search assets..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+
+              <button
+                className="view-all-btn"
+                onClick={() => handleAction("/assets")}
+              >
+                View All
+                <BsChevronRight />
+              </button>
+            </div>
+          </div>
+
+          <div className="table-wrapper">
+            <table className="dashboard-table">
               <thead>
                 <tr>
+                  <th>Asset Tag</th>
                   <th>Asset</th>
-                  <th>Employee</th>
+                  <th>Category</th>
                   <th>Department</th>
-                  <th>Movement</th>
-                  <th>Date</th>
+                  <th>Serial Number</th>
+                  <th>Condition</th>
                   <th>Status</th>
+                  <th>Location</th>
                 </tr>
               </thead>
+
               <tbody>
-                <tr>
-                  <td>Dell Latitude 5520</td>
-                  <td>John Smith</td>
-                  <td>IT</td>
-                  <td>
-                    <span className="badge issued">
-                      Issued
-                    </span>
-                  </td>
-                  <td>07 Sep 2026</td>
-                  <td>
-                    <span className="badge completed">
-                      Completed
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>HP LaserJet Pro</td>
-                  <td>Sarah Johnson</td>
-                  <td>HR</td>
-                  <td>
-                    <span className="badge transferred">
-                      Transferred
-                    </span>
-                  </td>
-                  <td>06 Sep 2026</td>
-                  <td>
-                    <span className="badge completed">
-                      Completed
-                    </span>
-                  </td>
-               </tr>
+                {filteredAssets.map((asset, index) => (
+                  <tr key={index}>
+                    <td>
+                      <strong className="asset-tag">{asset.tag}</strong>
+                    </td>
 
-                <tr>
-                  <td>Lenovo ThinkPad E14</td>
-                  <td>Michael Brown</td>
-                  <td>Finance</td>
-                  <td>
-                    <span className="badge returned">
-                      Returned
-                    </span>
-                  </td>
-                  <td>05 Sep 2026</td>
-                  <td>
-                    <span className="badge completed">
-                      Completed
-                    </span>
-                  </td>
-                </tr>
+                    <td>
+                      <div className="asset-name-cell">
+                        <div className="asset-small-icon">
+                          <BsLaptop />
+                        </div>
+                        <span>{asset.name}</span>
+                      </div>
+                    </td>
 
-                <tr>
-                  <td>Samsung Monitor 24"</td>
-                  <td>David Wilson</td>
-                  <td>Operations</td>
-                  <td>
-                    <span className="badge issued">
-                      Issued
-                    </span>
-                  </td>
-                  <td>04 Sep 2026</td>
-                  <td>
-                    <span className="badge completed">
-                      Completed
-                    </span>
-                  </td>
-                </tr>
+                    <td>{asset.category}</td>
+                    <td>{asset.department}</td>
+                    <td>{asset.serial}</td>
 
-                <tr>
-                  <td>Logitech Keyboard</td>
-                  <td>Emily Davis</td>
-                  <td>Marketing</td>
-                  <td>
-                    <span className="badge damaged">
-                      Damaged
-                    </span>
-                  </td>
-                  <td>03 Sep 2026</td>
-                  <td>
-                    <span className="badge pending">
-                      Pending
-                    </span>
-                  </td>
-                </tr>
+                    <td>
+                      <span
+                        className={`condition-badge ${asset.condition
+                          .toLowerCase()
+                          .replace(" ", "-")}`}
+                      >
+                        {asset.condition}
+                      </span>
+                    </td>
 
+                    <td>
+                      <span
+                        className={`status-badge ${asset.status
+                          .toLowerCase()
+                          .replace(" ", "-")}`}
+                      >
+                        {asset.status}
+                      </span>
+                    </td>
+
+                    <td>{asset.location}</td>
+                  </tr>
+                ))}
+
+                {filteredAssets.length === 0 && (
+                  <tr>
+                    <td colSpan="8" className="empty-table">
+                      No assets found.
+                    </td>
+                  </tr>
+                )}
               </tbody>
-
             </table>
-
           </div>
 
+          {/* Mobile asset cards */}
+          <div className="mobile-assets">
+            {filteredAssets.map((asset, index) => (
+              <div className="mobile-asset-card" key={index}>
+                <div className="mobile-asset-top">
+                  <strong>{asset.tag}</strong>
+
+                  <span
+                    className={`status-badge ${asset.status
+                      .toLowerCase()
+                      .replace(" ", "-")}`}
+                  >
+                    {asset.status}
+                  </span>
+                </div>
+
+                <h4>{asset.name}</h4>
+
+                <div className="mobile-asset-details">
+                  <span>
+                    <small>Category</small>
+                    {asset.category}
+                  </span>
+
+                  <span>
+                    <small>Department</small>
+                    {asset.department}
+                  </span>
+
+                  <span>
+                    <small>Serial</small>
+                    {asset.serial}
+                  </span>
+
+                  <span>
+                    <small>Location</small>
+                    {asset.location}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Department Overview */}
-        <div className="dashboard-card department-card">
-          <div className="card-header">
-            <div className="card-title-icon">
-              <BsBuilding />
-              <div>
-                <h3>Department Overview</h3>
-                <p>Assets assigned by department</p>
-              </div>
+        {/* Bottom Summary */}
+        <div className="bottom-summary">
+          <div className="summary-card">
+            <div className="summary-icon">
+              <BsClipboardCheck />
+            </div>
+            <div>
+              <span>Total Transactions</span>
+              <strong>486</strong>
             </div>
           </div>
-          <div className="department-list">
-            <div className="department-row">
-              <div className="department-name">
-                <span>Information Technology</span>
-              </div>
-              <div className="department-progress">
-                <div style={{ width: "90%" }}></div>
-              </div>
-              <strong>58</strong>
+
+          <div className="summary-card">
+            <div className="summary-icon">
+              <BsArrowDownLeft />
             </div>
-            <div className="department-row">
-              <div className="department-name">
-                <span>Operations</span>
-              </div>
-              <div className="department-progress">
-                <div style={{ width: "72%" }}></div>
-              </div>
-              <strong>47</strong>
+            <div>
+              <span>Total Returns</span>
+              <strong>126</strong>
             </div>
-            <div className="department-row">
-              <div className="department-name">
-                <span>Finance</span>
-              </div>
-              <div className="department-progress">
-                <div style={{ width: "55%" }}></div>
-              </div>
-              <strong>31</strong>
+          </div>
+
+          <div className="summary-card">
+            <div className="summary-icon">
+              <BsPersonCheck />
             </div>
-            <div className="department-row">
-              <div className="department-name">
-                <span>Human Resources</span>
-              </div>
-              <div className="department-progress">
-                <div style={{ width: "40%" }}></div>
-              </div>
-              <strong>22</strong>
+            <div>
+              <span>Total Issued</span>
+              <strong>214</strong>
             </div>
-            <div className="department-row">
-              <div className="department-name">
-                <span>Marketing</span>
-              </div>
-              <div className="department-progress">
-                <div style={{ width: "33%" }}></div>
-              </div>
-              <strong>19</strong>
+          </div>
+
+          <div className="summary-card">
+            <div className="summary-icon warning">
+              <BsExclamationTriangleFill />
+            </div>
+            <div>
+              <span>Damage / Lost</span>
+              <strong>18</strong>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Recent Activity + Quick Actions */}
-      <div className="dashboard-last-grid">
-        {/* Activity */}
-        <div className="dashboard-card activity-card">
-          <div className="card-header">
-            <div>
-              <h3>Recent Activity</h3>
-              <p>Latest system activity</p>
-            </div>
-            <button className="view-all">View All<BsArrowRight /></button>
-          </div>
-          <div className="activity-list">
-            <div className="activity-item">
-              <div className="activity-icon blue"><BsLaptop /></div>
-              <div>
-                <strong>Dell Latitude 5520 issued</strong>
-                <span>John Smith · IT Department</span>
-              </div>
-              <small>Today</small>
-            </div>
-            <div className="activity-item">
-              <div className="activity-icon purple">
-                <BsArrowLeftRight />
-              </div>
-              <div>
-                <strong>HP LaserJet Pro transferred</strong>
-                <span>Sarah Johnson · HR Department</span>
-              </div>
-              <small>Yesterday</small>
-            </div>
-            <div className="activity-item">
-              <div className="activity-icon green">
-                <BsArrowRepeat />
-              </div>
-              <div>
-                <strong>Lenovo ThinkPad E14 returned</strong>
-                <span>Michael Brown · Finance</span>
-              </div>
-              <small>2 days ago</small>
-            </div>
-            <div className="activity-item">
-              <div className="activity-icon red">
-                <BsExclamationTriangle />
-              </div>
-              <div>
-                <strong>Keyboard reported damaged</strong>
-                <span>Emily Davis · Marketing</span>
-              </div>
-              <small>3 days ago</small>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="dashboard-card quick-card">
-          <div className="card-header">
-            <div>
-              <h3>Quick Actions</h3>
-              <p>Frequently used operations</p>
-            </div>
-          </div>
-          <div className="quick-actions">
-            <button>
-              <div className="quick-icon blue">
-                <BsBoxSeam />
-              </div>
-              <span>
-                <strong>Register Asset</strong>Add new equipment</span>
-              <BsArrowRight />
-            </button>
-            <button>
-              <div className="quick-icon purple">
-                <BsBoxes />
-              </div>
-              <span>
-                <strong>Issue Asset</strong>
-                Assign equipment
-              </span>
-              <BsArrowRight />
-            </button>
-            <button>
-              <div className="quick-icon green">
-                <BsArrowRepeat />
-              </div>
-              <span>
-                <strong>Return Asset</strong>
-                Record a return
-              </span>
-              <BsArrowRight />
-            </button>
-            <button>
-              <div className="quick-icon red">
-                <BsExclamationTriangle />
-              </div>
-              <span>
-                <strong>Report Damage</strong>
-                Record damaged item
-              </span>
-              <BsArrowRight />
-            </button>
-          </div>
-        </div>
-
-      </div>
-
     </div>
   );
 };

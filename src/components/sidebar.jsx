@@ -20,8 +20,8 @@ function sidebar({setActivePage}) {
                  <li onClick={() => setActivePage("stock")}><BsBoxSeam className='icon'></BsBoxSeam><a>STOCK</a></li>
                  <li onClick={() => setActivePage("receiving")}><BsFillEnvelopeFill className='icon'></BsFillEnvelopeFill><a>RECEIVING</a></li>
                  <li onClick={() => setActivePage("issuing")}><BsClipboardCheck className='icon'></BsClipboardCheck><a>ISSUING</a></li>
-                 <li onClick={() => setActivePage("returns")}><BsArrowReturnLeft className='icon'></BsArrowReturnLeft><a>RETURNS</a></li>
-                 <li onClick={() => setActivePage("transfers")}><BsArrowLeftRight className='icon'></BsArrowLeftRight><a>TRANSFERS</a></li>
+                 <li onClick={() => setActivePage("return")}><BsArrowReturnLeft className='icon'></BsArrowReturnLeft><a>RETURNS</a></li>
+                 <li onClick={() => setActivePage("transfer")}><BsArrowLeftRight className='icon'></BsArrowLeftRight><a>TRANSFERS</a></li>
                  <li onClick={() => setActivePage("damage")}><BsExclamationTriangle className='icon'></BsExclamationTriangle><a>DAMAGE/LOOSE</a></li>
                  <li onClick={() => setActivePage("employee")}><BsPersonCircle className='icon'></BsPersonCircle><a>EMPLOYEES</a></li>
                  <li onClick={() => setActivePage("department")}><BsBuilding className="icon"></BsBuilding><a>DEPARTMENTS</a></li>

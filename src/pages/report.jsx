@@ -1,170 +1,946 @@
-// import React from 'react'
-import './report.css'
-import {BsBarChart,BsBoxSeam,BsCheckCircle,BsExclamationTriangle,BsSearch,BsDownload,BsPrinter,BsCalendar3,BsFileEarmarkText,
-BsArrowLeftRight,BsThreeDotsVertical,} from "react-icons/bs";
 
-const report = () => {
+import React, { useMemo, useState } from "react";
+import {
+  BsBarChart,
+  BsBox,
+  BsCheckCircle,
+  BsChevronDown,
+  BsChevronLeft,
+  BsChevronRight,
+  BsDownload,
+  BsFileBarGraph,
+  BsFileEarmarkArrowDown,
+  BsFileEarmarkPdf,
+  BsFileText,
+  BsFilter,
+  BsPrinter,
+  BsSearch,
+  BsThreeDotsVertical,
+  BsX,
+  BsArrowLeftRight,
+  BsExclamationTriangle,
+  BsCalendar3,
+  BsCheck2,
+  BsEye,
+} from "react-icons/bs";
+
+import "./report.css";
+
+const Report = () => {
+  // =========================================================
+  // STATE
+  // =========================================================
+
+  const [reportType, setReportType] = useState("Equipment Movement");
+
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
+  const [search, setSearch] = useState("");
+
+  const [showGenerateForm, setShowGenerateForm] = useState(false);
+
+  const [showExportMenu, setShowExportMenu] = useState(false);
+
+  const [showFilter, setShowFilter] = useState(false);
+
+  const [selectedStatus, setSelectedStatus] = useState("All");
+
+  const [selectedMovement, setSelectedMovement] = useState("All");
+
+  const [selectedRow, setSelectedRow] = useState(null);
+
+  const [showRowMenu, setShowRowMenu] = useState(null);
+
+  const [showDetails, setShowDetails] = useState(false);
+
+  const [generatedReport, setGeneratedReport] = useState(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 5;
+
+  // =========================================================
+  // REPORT DATA
+  // =========================================================
+
+  const reportData = [
+    {
+      id: 1,
+      asset: "Dell Latitude 5520",
+      category: "Laptop",
+      tag: "AST-00124",
+      employee: "John Smith",
+      department: "Information Technology",
+      movement: "Issued",
+      date: "07 Sep 2026",
+      status: "Completed",
+    },
+    {
+      id: 2,
+      asset: "HP LaserJet Pro",
+      category: "Printer",
+      tag: "AST-00119",
+      employee: "Sarah Johnson",
+      department: "Human Resources",
+      movement: "Transferred",
+      date: "06 Sep 2026",
+      status: "Completed",
+    },
+    {
+      id: 3,
+      asset: "Lenovo ThinkPad E14",
+      category: "Laptop",
+      tag: "AST-00116",
+      employee: "Michael Brown",
+      department: "Finance",
+      movement: "Returned",
+      date: "05 Sep 2026",
+      status: "Completed",
+    },
+    {
+      id: 4,
+      asset: 'Samsung Monitor 24"',
+      category: "Monitor",
+      tag: "AST-00108",
+      employee: "David Wilson",
+      department: "Operations",
+      movement: "Issued",
+      date: "04 Sep 2026",
+      status: "Completed",
+    },
+    {
+      id: 5,
+      asset: "Canon ImageRunner",
+      category: "Printer",
+      tag: "AST-00097",
+      employee: "Emily Davis",
+      department: "Administration",
+      movement: "Returned",
+      date: "03 Sep 2026",
+      status: "Completed",
+    },
+    {
+      id: 6,
+      asset: "Dell OptiPlex 7090",
+      category: "Desktop",
+      tag: "AST-00091",
+      employee: "Robert Taylor",
+      department: "Finance",
+      movement: "Issued",
+      date: "02 Sep 2026",
+      status: "Completed",
+    },
+    {
+      id: 7,
+      asset: "HP EliteBook 840",
+      category: "Laptop",
+      tag: "AST-00086",
+      employee: "Jessica Moore",
+      department: "Information Technology",
+      movement: "Transferred",
+      date: "01 Sep 2026",
+      status: "Pending",
+    },
+    {
+      id: 8,
+      asset: "Epson Projector",
+      category: "Projector",
+      tag: "AST-00081",
+      employee: "Daniel Anderson",
+      department: "Marketing",
+      movement: "Issued",
+      date: "30 Aug 2026",
+      status: "Completed",
+    },
+    {
+      id: 9,
+      asset: "Lenovo ThinkCentre",
+      category: "Desktop",
+      tag: "AST-00074",
+      employee: "Olivia Thomas",
+      department: "Operations",
+      movement: "Returned",
+      date: "29 Aug 2026",
+      status: "Completed",
+    },
+    {
+      id: 10,
+      asset: "Acer Aspire 5",
+      category: "Laptop",
+      tag: "AST-00069",
+      employee: "James Jackson",
+      department: "Sales",
+      movement: "Issued",
+      date: "28 Aug 2026",
+      status: "Pending",
+    },
+    {
+      id: 11,
+      asset: "Dell Monitor 27",
+      category: "Monitor",
+      tag: "AST-00063",
+      employee: "Sophia White",
+      department: "Human Resources",
+      movement: "Transferred",
+      date: "27 Aug 2026",
+      status: "Completed",
+    },
+    {
+      id: 12,
+      asset: "HP ProDesk 600",
+      category: "Desktop",
+      tag: "AST-00057",
+      employee: "William Harris",
+      department: "Information Technology",
+      movement: "Issued",
+      date: "26 Aug 2026",
+      status: "Completed",
+    },
+  ];
+
+  // =========================================================
+  // STATISTICS
+  // =========================================================
+
+  const statistics = [
+    {
+      title: "Total Assets",
+      value: "348",
+      description: "All registered assets",
+      icon: <BsBox />,
+      className: "blue",
+    },
+    {
+      title: "Assigned Assets",
+      value: "214",
+      description: "Currently assigned",
+      icon: <BsCheckCircle />,
+      className: "green",
+    },
+    {
+      title: "Available Stock",
+      value: "96",
+      description: "Ready for issue",
+      icon: <BsBox />,
+      className: "purple",
+    },
+    {
+      title: "Damaged / Lost",
+      value: "38",
+      description: "Requires attention",
+      icon: <BsExclamationTriangle />,
+      className: "orange",
+    },
+  ];
+
+  // =========================================================
+  // FILTER DATA
+  // =========================================================
+
+  const filteredData = useMemo(() => {
+    return reportData.filter((item) => {
+      const searchValue = search.toLowerCase();
+
+      const matchesSearch =
+        item.asset.toLowerCase().includes(searchValue) ||
+        item.tag.toLowerCase().includes(searchValue) ||
+        item.employee.toLowerCase().includes(searchValue) ||
+        item.department.toLowerCase().includes(searchValue) ||
+        item.movement.toLowerCase().includes(searchValue);
+
+      const matchesStatus =
+        selectedStatus === "All" ||
+        item.status === selectedStatus;
+
+      const matchesMovement =
+        selectedMovement === "All" ||
+        item.movement === selectedMovement;
+
+      return (
+        matchesSearch &&
+        matchesStatus &&
+        matchesMovement
+      );
+    });
+  }, [
+    search,
+    selectedStatus,
+    selectedMovement,
+  ]);
+
+  // =========================================================
+  // PAGINATION
+  // =========================================================
+
+  const totalPages = Math.ceil(
+    filteredData.length / itemsPerPage
+  );
+
+  const startIndex =
+    (currentPage - 1) * itemsPerPage;
+
+  const currentData = filteredData.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
+
+  // =========================================================
+  // SEARCH
+  // =========================================================
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    setCurrentPage(1);
+  };
+
+  // =========================================================
+  // GENERATE REPORT
+  // =========================================================
+
+  const handleGenerateReport = (e) => {
+    e.preventDefault();
+
+    if (!startDate || !endDate) {
+      alert("Please select both start date and end date.");
+      return;
+    }
+
+    if (new Date(startDate) > new Date(endDate)) {
+      alert("Start date cannot be after end date.");
+      return;
+    }
+
+    const report = {
+      type: reportType,
+      startDate,
+      endDate,
+      generatedAt: new Date().toLocaleString(),
+      totalRecords: filteredData.length,
+    };
+
+    setGeneratedReport(report);
+    setShowGenerateForm(false);
+
+    alert(
+      `${reportType} report generated successfully.`
+    );
+  };
+
+  // =========================================================
+  // PRINT
+  // =========================================================
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  // =========================================================
+  // CSV EXPORT
+  // =========================================================
+
+  const handleExportCSV = () => {
+    const headers = [
+      "Asset",
+      "Category",
+      "Asset Tag",
+      "Employee",
+      "Department",
+      "Movement",
+      "Date",
+      "Status",
+    ];
+
+    const rows = filteredData.map((item) => [
+      item.asset,
+      item.category,
+      item.tag,
+      item.employee,
+      item.department,
+      item.movement,
+      item.date,
+      item.status,
+    ]);
+
+    const csvContent = [
+      headers.join(","),
+      ...rows.map((row) =>
+        row
+          .map((value) =>
+            `"${String(value).replace(/"/g, '""')}"`
+          )
+          .join(",")
+      ),
+    ].join("\n");
+
+    const blob = new Blob([csvContent], {
+      type: "text/csv;charset=utf-8;",
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "equipment-report.csv";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+
+    setShowExportMenu(false);
+  };
+
+  // =========================================================
+  // EXPORT JSON
+  // =========================================================
+
+  const handleExportJSON = () => {
+    const json = JSON.stringify(
+      filteredData,
+      null,
+      2
+    );
+
+    const blob = new Blob([json], {
+      type: "application/json",
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "equipment-report.json";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+
+    setShowExportMenu(false);
+  };
+
+  // =========================================================
+  // ROW DETAILS
+  // =========================================================
+
+  const handleViewDetails = (item) => {
+    setSelectedRow(item);
+    setShowDetails(true);
+    setShowRowMenu(null);
+  };
+
+  // =========================================================
+  // RESET FILTERS
+  // =========================================================
+
+  const resetFilters = () => {
+    setSelectedStatus("All");
+    setSelectedMovement("All");
+    setSearch("");
+    setCurrentPage(1);
+  };
+
+  // =========================================================
+  // STATUS CLASS
+  // =========================================================
+
+  const getStatusClass = (status) => {
+    if (status === "Completed") {
+      return "status completed";
+    }
+
+    if (status === "Pending") {
+      return "status pending";
+    }
+
+    return "status";
+  };
+
+  // =========================================================
+  // MOVEMENT CLASS
+  // =========================================================
+
+  const getMovementClass = (movement) => {
+    if (movement === "Issued") {
+      return "movement issued";
+    }
+
+    if (movement === "Returned") {
+      return "movement returned";
+    }
+
+    if (movement === "Transferred") {
+      return "movement transferred";
+    }
+
+    return "movement";
+  };
+
   return (
     <div className="report-page">
 
-      {/* Header */}
+      {/* =====================================================
+          PAGE HEADER
+      ====================================================== */}
+
       <div className="report-header">
-        <div className="report-title-wrapper">
+
+        <div className="report-title-section">
+
           <div className="report-title-icon">
             <BsBarChart />
           </div>
+
           <div>
-            <h2>Reports</h2>
+            <h1>Reports</h1>
+
             <p>
-              View reports and track equipment, stock and asset movements.
+              View reports and track equipment, stock
+              and asset movements.
             </p>
           </div>
+
         </div>
 
         <div className="report-header-actions">
-          <button className="report-print-btn">
+
+          <button
+            className="secondary-button"
+            onClick={handlePrint}
+          >
             <BsPrinter />
             Print
           </button>
 
-          <button className="report-export-btn">
-            <BsDownload />
-            Export Report
-          </button>
+          <div className="export-wrapper">
+
+            <button
+              className="primary-button"
+              onClick={() =>
+                setShowExportMenu(!showExportMenu)
+              }
+            >
+              <BsDownload />
+              Export Report
+              <BsChevronDown />
+            </button>
+
+            {showExportMenu && (
+              <div className="export-menu">
+
+                <button onClick={handleExportCSV}>
+                  <BsFileText />
+                  Export CSV
+                </button>
+
+                <button onClick={handleExportJSON}>
+                  <BsFileEarmarkArrowDown />
+                  Export JSON
+                </button>
+
+                <button onClick={handlePrint}>
+                  <BsFileEarmarkPdf />
+                  Print / PDF
+                </button>
+
+              </div>
+            )}
+
+          </div>
+
         </div>
+
       </div>
 
-      {/* Summary Cards */}
-      <div className="report-summary">
+      {/* =====================================================
+          STATISTICS
+      ====================================================== */}
 
-        <div className="report-stat-card">
-          <div className="report-stat-icon">
-            <BsBoxSeam />
+      <div className="statistics-grid">
+
+        {statistics.map((stat) => (
+          <div
+            className="stat-card"
+            key={stat.title}
+          >
+
+            <div
+              className={`stat-icon ${stat.className}`}
+            >
+              {stat.icon}
+            </div>
+
+            <div className="stat-content">
+
+              <span className="stat-title">
+                {stat.title}
+              </span>
+
+              <strong>{stat.value}</strong>
+
+              <small>
+                {stat.description}
+              </small>
+
+            </div>
+
+          </div>
+        ))}
+
+      </div>
+
+      {/* =====================================================
+          GENERATE REPORT SECTION
+      ====================================================== */}
+
+      <div className="generate-card">
+
+        <div className="section-heading">
+
+          <div className="section-icon">
+            <BsFileBarGraph />
           </div>
 
           <div>
-            <span>Total Assets</span>
-            <strong>348</strong>
-            <small>All registered assets</small>
+            <h2>Generate Report</h2>
+
+            <p>
+              Select the report type and date range.
+            </p>
           </div>
+
         </div>
 
-        <div className="report-stat-card">
-          <div className="report-stat-icon">
+        {!showGenerateForm ? (
+
+          <div className="generate-preview">
+
+            <div className="selected-report">
+
+              <span>Current Report</span>
+
+              <strong>
+                {generatedReport
+                  ? generatedReport.type
+                  : "Equipment Movement"}
+              </strong>
+
+              {generatedReport && (
+                <small>
+                  {generatedReport.startDate} —{" "}
+                  {generatedReport.endDate}
+                </small>
+              )}
+
+            </div>
+
+            <button
+              className="primary-button generate-button"
+              onClick={() =>
+                setShowGenerateForm(true)
+              }
+            >
+              <BsBarChart />
+              Generate
+            </button>
+
+          </div>
+
+        ) : (
+
+          <form
+            className="generate-form"
+            onSubmit={handleGenerateReport}
+          >
+
+            <div className="form-group">
+
+              <label>
+                Report Type
+              </label>
+
+              <div className="select-wrapper">
+
+                <select
+                  value={reportType}
+                  onChange={(e) =>
+                    setReportType(e.target.value)
+                  }
+                >
+                  <option>
+                    Equipment Movement
+                  </option>
+
+                  <option>
+                    Asset Inventory
+                  </option>
+
+                  <option>
+                    Stock Report
+                  </option>
+
+                  <option>
+                    Employee Assets
+                  </option>
+
+                  <option>
+                    Department Report
+                  </option>
+
+                  <option>
+                    Damaged / Lost Assets
+                  </option>
+                </select>
+
+                <BsChevronDown />
+
+              </div>
+
+            </div>
+
+            <div className="form-group">
+
+              <label>
+                Start Date
+              </label>
+
+              <div className="date-input">
+
+                <BsCalendar3 />
+
+                <input
+                  type="date"
+                  value={startDate}
+                  onChange={(e) =>
+                    setStartDate(e.target.value)
+                  }
+                />
+
+              </div>
+
+            </div>
+
+            <div className="form-group">
+
+              <label>
+                End Date
+              </label>
+
+              <div className="date-input">
+
+                <BsCalendar3 />
+
+                <input
+                  type="date"
+                  value={endDate}
+                  onChange={(e) =>
+                    setEndDate(e.target.value)
+                  }
+                />
+
+              </div>
+
+            </div>
+
+            <div className="form-actions">
+
+              <button
+                type="button"
+                className="secondary-button"
+                onClick={() =>
+                  setShowGenerateForm(false)
+                }
+              >
+                Cancel
+              </button>
+
+              <button
+                type="submit"
+                className="primary-button"
+              >
+                <BsCheck2 />
+                Generate Report
+              </button>
+
+            </div>
+
+          </form>
+
+        )}
+
+      </div>
+
+      {/* =====================================================
+          GENERATED REPORT MESSAGE
+      ====================================================== */}
+
+      {generatedReport && (
+        <div className="generated-report">
+
+          <div className="generated-icon">
             <BsCheckCircle />
           </div>
 
-          <div>
-            <span>Assigned Assets</span>
-            <strong>214</strong>
-            <small>Currently assigned</small>
-          </div>
-        </div>
+          <div className="generated-content">
 
-        <div className="report-stat-card">
-          <div className="report-stat-icon">
-            <BsBoxSeam />
-          </div>
+            <strong>
+              Report generated successfully
+            </strong>
 
-          <div>
-            <span>Available Stock</span>
-            <strong>96</strong>
-            <small>Ready for issue</small>
-          </div>
-        </div>
+            <span>
+              {generatedReport.type} ·{" "}
+              {generatedReport.startDate} to{" "}
+              {generatedReport.endDate} ·{" "}
+              {generatedReport.totalRecords} records
+            </span>
 
-        <div className="report-stat-card">
-          <div className="report-stat-icon warning-icon">
-            <BsExclamationTriangle />
           </div>
 
-          <div>
-            <span>Damaged / Lost</span>
-            <strong>38</strong>
-            <small>Requires attention</small>
-          </div>
-        </div>
-
-      </div>
-
-      {/* Report Filters */}
-      <div className="report-filter-card">
-
-        <div className="filter-heading">
-          <div className="filter-heading-icon">
-            <BsFileEarmarkText />
-          </div>
-
-          <div>
-            <h3>Generate Report</h3>
-            <p>Select the report type and date range.</p>
-          </div>
-        </div>
-
-        <div className="report-filters">
-
-          <div className="filter-group">
-            <label>Report Type</label>
-
-            <select>
-              <option>Equipment Movement</option>
-              <option>Stock Report</option>
-              <option>Assigned Assets</option>
-              <option>Damaged / Lost Assets</option>
-              <option>Department Report</option>
-              <option>Employee Asset Report</option>
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <label>Start Date</label>
-
-            <div className="date-input">
-              <BsCalendar3 />
-              <input type="date" />
-            </div>
-          </div>
-
-          <div className="filter-group">
-            <label>End Date</label>
-
-            <div className="date-input">
-              <BsCalendar3 />
-
-              <input type="date"/>
-            </div>
-          </div>
-
-          <button className="generate-btn">
-            <BsBarChart />
-            Generate
+          <button
+            className="close-generated"
+            onClick={() =>
+              setGeneratedReport(null)
+            }
+          >
+            <BsX />
           </button>
 
         </div>
-      </div>
+      )}
 
-      {/* Report Table */}
-      <div className="report-table-card">
+      {/* =====================================================
+          REPORT TABLE
+      ====================================================== */}
 
-        <div className="report-table-header">
+      <div className="movement-card">
 
-          <div className="report-table-heading">
-            <div className="movement-icon">
+        <div className="movement-header">
+
+          <div className="movement-title">
+
+            <div className="section-icon">
               <BsArrowLeftRight />
             </div>
+
             <div>
-              <h3></h3>
-              <p>Recent equipment and asset movements.</p>
+              <h2>
+                Recent Equipment & Asset Movements
+              </h2>
+
+              <p>
+                Recent equipment and asset movements.
+              </p>
             </div>
+
           </div>
 
-          <div className="report-search">
-            <BsSearch />
-            <input type="text" placeholder="Search report..."/>
+          <div className="table-actions">
+
+            <div className="search-box">
+
+              <BsSearch />
+
+              <input
+                type="text"
+                placeholder="Search report..."
+                value={search}
+                onChange={handleSearch}
+              />
+
+              {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="clear-search"
+                >
+                  <BsX />
+                </button>
+              )}
+
+            </div>
+
+            <button
+              className={`filter-button ${
+                showFilter ? "active" : ""
+              }`}
+              onClick={() =>
+                setShowFilter(!showFilter)
+              }
+            >
+              <BsFilter />
+              Filter
+            </button>
+
           </div>
+
         </div>
-        <div className="report-table-wrapper">
-          <table className="report-table">
+
+        {/* FILTER PANEL */}
+
+        {showFilter && (
+          <div className="filter-panel">
+
+            <div className="filter-group">
+
+              <label>Status</label>
+
+              <select
+                value={selectedStatus}
+                onChange={(e) => {
+                  setSelectedStatus(e.target.value);
+                  setCurrentPage(1);
+                }}
+              >
+                <option>All</option>
+                <option>Completed</option>
+                <option>Pending</option>
+              </select>
+
+            </div>
+
+            <div className="filter-group">
+
+              <label>Movement</label>
+
+              <select
+                value={selectedMovement}
+                onChange={(e) => {
+                  setSelectedMovement(e.target.value);
+                  setCurrentPage(1);
+                }}
+              >
+                <option>All</option>
+                <option>Issued</option>
+                <option>Returned</option>
+                <option>Transferred</option>
+              </select>
+
+            </div>
+
+            <button
+              className="reset-filter"
+              onClick={resetFilters}
+            >
+              Reset Filters
+            </button>
+
+          </div>
+        )}
+
+        {/* TABLE */}
+
+        <div className="table-container">
+
+          <table>
+
             <thead>
               <tr>
                 <th>#</th>
@@ -178,271 +954,383 @@ const report = () => {
                 <th>Action</th>
               </tr>
             </thead>
+
             <tbody>
-              <tr>
-                <td>01</td>
-                <td>
-                  <div className="asset-info">
-                    <div className="asset-icon">
-                      <BsBoxSeam />
-                    </div>
-                    <div>
-                      <strong>Dell Latitude 5520</strong>
-                      <small>Laptop</small>
-                    </div>
-                  </div>
-                </td>
-                <td>AST-00124</td>
-                <td>John Smith</td>
-                <td>Information Technology</td>
-                <td>
-                  <span className="movement issue">
-                    Issued
-                  </span>
-                </td>
-                <td>07 Sep 2026</td>
-                <td>
-                  <span className="report-status completed">
-                    Completed
-                  </span>
-                </td>
-                <td>
-                  <button className="table-more-btn">
-                    <BsThreeDotsVertical />
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>02</td>
-                <td>
-                  <div className="asset-info">
-                    <div className="asset-icon">
-                      <BsBoxSeam />
-                    </div>
-                    <div>
-                      <strong>HP LaserJet Pro</strong>
-                      <small>Printer</small>
-                    </div>
-                  </div>
-                </td>
-                <td>AST-00119</td>
-                <td>Sarah Johnson</td>
-                <td>Human Resources</td>
-                <td>
-                  <span className="movement transfer">
-                    Transferred
-                  </span>
-                </td>
 
-                <td>06 Sep 2026</td>
+              {currentData.length > 0 ? (
 
-                <td>
-                  <span className="report-status completed">
-                    Completed
-                  </span>
-                </td>
+                currentData.map((item, index) => (
 
-                <td>
-                  <button className="table-more-btn">
-                    <BsThreeDotsVertical />
-                  </button>
-                </td>
-              </tr>
+                  <tr key={item.id}>
 
-              <tr>
-                <td>03</td>
+                    <td>
+                      {String(
+                        startIndex + index + 1
+                      ).padStart(2, "0")}
+                    </td>
 
-                <td>
-                  <div className="asset-info">
-                    <div className="asset-icon">
-                      <BsBoxSeam />
-                    </div>
+                    <td>
 
-                    <div>
-                      <strong>Lenovo ThinkPad E14</strong>
-                      <small>Laptop</small>
-                    </div>
-                  </div>
-                </td>
+                      <div className="asset-cell">
 
-                <td>AST-00116</td>
-                <td>Michael Brown</td>
-                <td>Finance</td>
+                        <div className="asset-icon">
+                          <BsBox />
+                        </div>
 
-                <td>
-                  <span className="movement return">
-                    Returned
-                  </span>
-                </td>
+                        <div>
 
-                <td>05 Sep 2026</td>
+                          <strong>
+                            {item.asset}
+                          </strong>
 
-                <td>
-                  <span className="report-status completed">
-                    Completed
-                  </span>
-                </td>
+                          <small>
+                            {item.category}
+                          </small>
 
-                <td>
-                  <button className="table-more-btn">
-                    <BsThreeDotsVertical />
-                  </button>
-                </td>
-              </tr>
+                        </div>
 
-              <tr>
-                <td>04</td>
+                      </div>
 
-                <td>
-                  <div className="asset-info">
-                    <div className="asset-icon">
-                      <BsBoxSeam />
-                    </div>
+                    </td>
 
-                    <div>
-                      <strong>Samsung Monitor 24"</strong>
-                      <small>Monitor</small>
-                    </div>
-                  </div>
-                </td>
+                    <td>
+                      <span className="asset-tag">
+                        {item.tag}
+                      </span>
+                    </td>
 
-                <td>AST-00108</td>
-                <td>David Wilson</td>
-                <td>Operations</td>
+                    <td>
+                      {item.employee}
+                    </td>
 
-                <td>
-                  <span className="movement issue">
-                    Issued
-                  </span>
-                </td>
+                    <td>
+                      {item.department}
+                    </td>
 
-                <td>04 Sep 2026</td>
+                    <td>
+                      <span
+                        className={getMovementClass(
+                          item.movement
+                        )}
+                      >
+                        {item.movement}
+                      </span>
+                    </td>
 
-                <td>
-                  <span className="report-status completed">
-                    Completed
-                  </span>
-                </td>
+                    <td>
+                      {item.date}
+                    </td>
 
-                <td>
-                  <button className="table-more-btn">
-                    <BsThreeDotsVertical />
-                  </button>
-                </td>
-              </tr>
+                    <td>
+                      <span
+                        className={getStatusClass(
+                          item.status
+                        )}
+                      >
+                        {item.status}
+                      </span>
+                    </td>
 
-              <tr>
-                <td>05</td>
+                    <td>
 
-                <td>
-                  <div className="asset-info">
-                    <div className="asset-icon">
-                      <BsBoxSeam />
-                    </div>
+                      <div className="action-wrapper">
 
-                    <div>
-                      <strong>Logitech Keyboard</strong>
-                      <small>Keyboard</small>
-                    </div>
-                  </div>
-                </td>
+                        <button
+                          className="action-button"
+                          onClick={() =>
+                            setShowRowMenu(
+                              showRowMenu === item.id
+                                ? null
+                                : item.id
+                            )
+                          }
+                        >
+                          <BsThreeDotsVertical />
+                        </button>
 
-                <td>AST-00102</td>
-                <td>Emily Davis</td>
-                <td>Marketing</td>
+                        {showRowMenu === item.id && (
 
-                <td>
-                  <span className="movement damaged">
-                    Damaged
-                  </span>
-                </td>
+                          <div className="row-menu">
 
-                <td>03 Sep 2026</td>
+                            <button
+                              onClick={() =>
+                                handleViewDetails(item)
+                              }
+                            >
+                              <BsEye />
+                              View Details
+                            </button>
 
-                <td>
-                  <span className="report-status pending">
-                    Pending
-                  </span>
-                </td>
+                            <button
+                              onClick={() => {
+                                setSelectedRow(item);
+                                setShowDetails(true);
+                                setShowRowMenu(null);
+                              }}
+                            >
+                              <BsDownload />
+                              Export Record
+                            </button>
 
-                <td>
-                  <button className="table-more-btn">
-                    <BsThreeDotsVertical />
-                  </button>
-                </td>
-              </tr>
+                          </div>
 
-              <tr>
-                <td>06</td>
+                        )}
 
-                <td>
-                  <div className="asset-info">
-                    <div className="asset-icon">
-                      <BsBoxSeam />
-                    </div>
+                      </div>
 
-                    <div>
-                      <strong>Canon ImageRunner</strong>
-                      <small>Photocopier</small>
-                    </div>
-                  </div>
-                </td>
+                    </td>
 
-                <td>AST-00098</td>
-                <td>Robert Taylor</td>
-                <td>Administration</td>
+                  </tr>
 
-                <td>
-                  <span className="movement transfer">
-                    Transferred
-                  </span>
-                </td>
+                ))
 
-                <td>02 Sep 2026</td>
+              ) : (
 
-                <td>
-                  <span className="report-status completed">
-                    Completed
-                  </span>
-                </td>
+                <tr>
 
-                <td>
-                  <button className="table-more-btn">
-                    <BsThreeDotsVertical />
-                  </button>
-                </td>
-              </tr>
+                  <td
+                    colSpan="9"
+                    className="empty-state"
+                  >
+
+                    <BsSearch />
+
+                    <strong>
+                      No reports found
+                    </strong>
+
+                    <span>
+                      Try changing your search or filters.
+                    </span>
+
+                  </td>
+
+                </tr>
+
+              )}
 
             </tbody>
+
           </table>
+
         </div>
 
-        {/* Pagination */}
-        <div className="report-pagination">
+        {/* =====================================================
+            PAGINATION
+        ====================================================== */}
+
+        <div className="pagination">
 
           <span>
-            Showing 1 to 6 of 48 records
+            Showing{" "}
+            <strong>
+              {filteredData.length === 0
+                ? 0
+                : startIndex + 1}
+            </strong>{" "}
+            to{" "}
+            <strong>
+              {Math.min(
+                startIndex + itemsPerPage,
+                filteredData.length
+              )}
+            </strong>{" "}
+            of{" "}
+            <strong>
+              {filteredData.length}
+            </strong>{" "}
+            results
           </span>
 
           <div className="pagination-buttons">
-            <button>Previous</button>
-            <button className="active-page">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>Next</button>
+
+            <button
+              disabled={currentPage === 1}
+              onClick={() =>
+                setCurrentPage(
+                  currentPage - 1
+                )
+              }
+            >
+              <BsChevronLeft />
+            </button>
+
+            {Array.from(
+              { length: totalPages },
+              (_, index) => index + 1
+            ).map((page) => (
+
+              <button
+                key={page}
+                className={
+                  currentPage === page
+                    ? "active"
+                    : ""
+                }
+                onClick={() =>
+                  setCurrentPage(page)
+                }
+              >
+                {page}
+              </button>
+
+            ))}
+
+            <button
+              disabled={
+                currentPage === totalPages ||
+                totalPages === 0
+              }
+              onClick={() =>
+                setCurrentPage(
+                  currentPage + 1
+                )
+              }
+            >
+              <BsChevronRight />
+            </button>
+
           </div>
 
         </div>
 
       </div>
 
+      {/* =====================================================
+          DETAILS MODAL
+      ====================================================== */}
+
+      {showDetails && selectedRow && (
+
+        <div
+          className="modal-overlay"
+          onClick={() => setShowDetails(false)}
+        >
+
+          <div
+            className="details-modal"
+            onClick={(e) =>
+              e.stopPropagation()
+            }
+          >
+
+            <div className="modal-header">
+
+              <div>
+                <h2>Asset Details</h2>
+
+                <p>
+                  Complete information about this movement.
+                </p>
+              </div>
+
+              <button
+                onClick={() =>
+                  setShowDetails(false)
+                }
+              >
+                <BsX />
+              </button>
+
+            </div>
+
+            <div className="details-icon">
+              <BsBox />
+            </div>
+
+            <div className="details-grid">
+
+              <div>
+                <span>Asset Name</span>
+                <strong>
+                  {selectedRow.asset}
+                </strong>
+              </div>
+
+              <div>
+                <span>Category</span>
+                <strong>
+                  {selectedRow.category}
+                </strong>
+              </div>
+
+              <div>
+                <span>Asset Tag</span>
+                <strong>
+                  {selectedRow.tag}
+                </strong>
+              </div>
+
+              <div>
+                <span>Employee</span>
+                <strong>
+                  {selectedRow.employee}
+                </strong>
+              </div>
+
+              <div>
+                <span>Department</span>
+                <strong>
+                  {selectedRow.department}
+                </strong>
+              </div>
+
+              <div>
+                <span>Movement</span>
+                <strong>
+                  {selectedRow.movement}
+                </strong>
+              </div>
+
+              <div>
+                <span>Date</span>
+                <strong>
+                  {selectedRow.date}
+                </strong>
+              </div>
+
+              <div>
+                <span>Status</span>
+                <strong>
+                  {selectedRow.status}
+                </strong>
+              </div>
+
+            </div>
+
+            <div className="modal-footer">
+
+              <button
+                className="secondary-button"
+                onClick={() =>
+                  setShowDetails(false)
+                }
+              >
+                Close
+              </button>
+
+              <button
+                className="primary-button"
+                onClick={() => {
+                  alert(
+                    `Exporting ${selectedRow.asset}`
+                  );
+                }}
+              >
+                <BsDownload />
+                Export Record
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
     </div>
+  );
+};
 
-
-
-    
-  )
-}
-
-export default report
+export default Report;
