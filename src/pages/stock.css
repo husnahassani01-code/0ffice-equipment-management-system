@@ -7,6 +7,10 @@
   width: 100vw;
 }
 
+.sidebarOpen .stock-page {
+  padding-left: 300px;
+}
+
 /* HEADER */
 
 .stock-header {

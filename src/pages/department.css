@@ -7,6 +7,9 @@
   padding-top: 120px;
 }
 
+.sidebarOpen .department-page {
+  padding-left: 280px;
+}
 .department-page *,
 .department-page *::before,
 .department-page *::after {

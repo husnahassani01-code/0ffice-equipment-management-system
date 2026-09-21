@@ -6,6 +6,10 @@
   padding-top: 120px;
 }
 
+.sidebarOpen .issuing-page {
+  padding-left: 300px;
+}
+
 /* HEADER */
 
 .issuing-header {

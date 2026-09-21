@@ -7,6 +7,9 @@
   box-sizing: border-box;
   padding-top: 120px;
 }
+.sidebarOpen .employee-page {
+  padding-left: 300px;
+}
 
 /* HEADER */
 

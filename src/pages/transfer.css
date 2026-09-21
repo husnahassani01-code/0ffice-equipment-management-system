@@ -8,6 +8,10 @@
   padding-top: 120px;
 }
 
+.sidebarOpen .transfers-page {
+  padding-left: 300px;
+}
+
 .transfers-page *,
 .transfers-page *::before,
 .transfers-page *::after {

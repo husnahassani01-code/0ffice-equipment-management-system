@@ -10,6 +10,10 @@
   padding-top: 120px;
 }
 
+.sidebarOpen .returns-page {
+  padding-left: 300px;
+}
+
 /* HEADER */
 
 .returns-header {

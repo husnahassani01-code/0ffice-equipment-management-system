@@ -7,6 +7,9 @@
   padding-top: 120px;
   
 }
+.sidebarOpen .assets-page {
+  padding-left: 300px;
+}
 
 .assets-header {
   display: flex;

@@ -12,6 +12,9 @@
   padding: 24px;
   padding-top: 120px;
 }
+.sidebarOpen .dashboard-page {
+  padding-left: 300px;
+}
 
 .dashboard-container {
   width: 100%;

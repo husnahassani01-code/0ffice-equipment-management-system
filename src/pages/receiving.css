@@ -5,6 +5,9 @@
   color: #1f2937;
   padding-top: 120px;
 }
+.sidebarOpen .receiving-page {
+  padding-left: 300px;
+}
 
 /* HEADER */
 

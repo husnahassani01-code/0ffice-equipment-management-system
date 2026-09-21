@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   BsBoxSeam,
-  BsPeople,
   BsBuilding,
   BsLaptop,
   BsArrowUpRight,
