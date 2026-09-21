@@ -27,9 +27,6 @@ import {
 import "./report.css";
 
 const Report = () => {
-  // =========================================================
-  // STATE
-  // =========================================================
 
   const [reportType, setReportType] = useState("Equipment Movement");
 
@@ -60,9 +57,7 @@ const Report = () => {
 
   const itemsPerPage = 5;
 
-  // =========================================================
   // REPORT DATA
-  // =========================================================
 
   const reportData = [
     {
@@ -199,9 +194,7 @@ const Report = () => {
     },
   ];
 
-  // =========================================================
   // STATISTICS
-  // =========================================================
 
   const statistics = [
     {
@@ -234,9 +227,7 @@ const Report = () => {
     },
   ];
 
-  // =========================================================
   // FILTER DATA
-  // =========================================================
 
   const filteredData = useMemo(() => {
     return reportData.filter((item) => {
@@ -267,11 +258,10 @@ const Report = () => {
     search,
     selectedStatus,
     selectedMovement,
-  ]);
+    ]);
+  
 
-  // =========================================================
   // PAGINATION
-  // =========================================================
 
   const totalPages = Math.ceil(
     filteredData.length / itemsPerPage
@@ -285,18 +275,14 @@ const Report = () => {
     startIndex + itemsPerPage
   );
 
-  // =========================================================
   // SEARCH
-  // =========================================================
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
     setCurrentPage(1);
   };
 
-  // =========================================================
   // GENERATE REPORT
-  // =========================================================
 
   const handleGenerateReport = (e) => {
     e.preventDefault();
@@ -327,17 +313,13 @@ const Report = () => {
     );
   };
 
-  // =========================================================
   // PRINT
-  // =========================================================
 
   const handlePrint = () => {
     window.print();
   };
 
-  // =========================================================
   // CSV EXPORT
-  // =========================================================
 
   const handleExportCSV = () => {
     const headers = [
@@ -395,9 +377,7 @@ const Report = () => {
     setShowExportMenu(false);
   };
 
-  // =========================================================
   // EXPORT JSON
-  // =========================================================
 
   const handleExportJSON = () => {
     const json = JSON.stringify(
@@ -428,9 +408,7 @@ const Report = () => {
     setShowExportMenu(false);
   };
 
-  // =========================================================
   // ROW DETAILS
-  // =========================================================
 
   const handleViewDetails = (item) => {
     setSelectedRow(item);
@@ -438,9 +416,7 @@ const Report = () => {
     setShowRowMenu(null);
   };
 
-  // =========================================================
   // RESET FILTERS
-  // =========================================================
 
   const resetFilters = () => {
     setSelectedStatus("All");
@@ -449,9 +425,7 @@ const Report = () => {
     setCurrentPage(1);
   };
 
-  // =========================================================
   // STATUS CLASS
-  // =========================================================
 
   const getStatusClass = (status) => {
     if (status === "Completed") {
@@ -465,9 +439,7 @@ const Report = () => {
     return "status";
   };
 
-  // =========================================================
   // MOVEMENT CLASS
-  // =========================================================
 
   const getMovementClass = (movement) => {
     if (movement === "Issued") {
@@ -488,9 +460,7 @@ const Report = () => {
   return (
     <div className="report-page">
 
-      {/* =====================================================
-          PAGE HEADER
-      ====================================================== */}
+          {/* PAGE HEADER */}
 
       <div className="report-header">
 
@@ -561,9 +531,9 @@ const Report = () => {
 
       </div>
 
-      {/* =====================================================
+      {/* 
           STATISTICS
-      ====================================================== */}
+       */}
 
       <div className="statistics-grid">
 
@@ -598,9 +568,9 @@ const Report = () => {
 
       </div>
 
-      {/* =====================================================
+      {/* 
           GENERATE REPORT SECTION
-      ====================================================== */}
+       */}
 
       <div className="generate-card">
 
@@ -779,9 +749,9 @@ const Report = () => {
 
       </div>
 
-      {/* =====================================================
+      {/* /* 
           GENERATED REPORT MESSAGE
-      ====================================================== */}
+       */}
 
       {generatedReport && (
         <div className="generated-report">
@@ -817,9 +787,9 @@ const Report = () => {
         </div>
       )}
 
-      {/* =====================================================
+      {/* 
           REPORT TABLE
-      ====================================================== */}
+       */}
 
       <div className="movement-card">
 
@@ -1115,9 +1085,9 @@ const Report = () => {
 
         </div>
 
-        {/* =====================================================
+        {/* 
             PAGINATION
-        ====================================================== */}
+         */}
 
         <div className="pagination">
 
@@ -1196,9 +1166,9 @@ const Report = () => {
 
       </div>
 
-      {/* =====================================================
+      {/* 
           DETAILS MODAL
-      ====================================================== */}
+       */}
 
       {showDetails && selectedRow && (
 

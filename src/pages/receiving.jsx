@@ -325,7 +325,6 @@ function Receiving() {
             <BsBoxArrowInDown />
             Equipment Receiving
           </h2>
-
           <p>
             Record and manage equipment received back
           </p>
@@ -336,7 +335,7 @@ function Receiving() {
           onClick={openAddModal}
         >
           <BsPlus />
-          Receive Equipment
+           Add Receiving
         </button>
       </div>
 

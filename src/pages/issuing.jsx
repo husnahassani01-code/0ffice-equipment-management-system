@@ -316,7 +316,7 @@ function Issuing() {
           onClick={openAddModal}
         >
           <BsPlus />
-          Issue Equipment
+          Add issuing
         </button>
       </div>
 
