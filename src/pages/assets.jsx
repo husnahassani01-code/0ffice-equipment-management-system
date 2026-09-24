@@ -13,10 +13,8 @@ import {
   BsCheckCircleFill,
   BsExclamationTriangleFill,
   BsBoxes,
-  BsBuilding,
   BsChevronLeft,
   BsChevronRight,
-  BsQrCode,
   BsTag,
 } from "react-icons/bs";
 import "./assets.css";

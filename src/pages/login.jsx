@@ -4,6 +4,8 @@ import {BsBoxArrowInRight,BsEnvelope,BsLock,BsEye,BsEyeSlash,BsPerson,BsPersonPl
 } from "react-icons/bs";
 import logo from '../assets/logo.png';
 import "./login.css";
+import axios from "axios";
+
 
 const Login = ({onLogin}) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -75,8 +77,8 @@ const Login = ({onLogin}) => {
 //     setRegisterPassword("");
 //     setConfirmPassword("");
 //   };
-
-const handleLogin = (e) => {
+//  her
+const handleLogin =async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -123,6 +125,47 @@ const handleLogin = (e) => {
     setShowRegister(false);
   };
 
+// With backend
+// const handleLogin = async (e) => {
+//   e.preventDefault();
+
+//   if (!email || !password) {
+//     alert("Please enter your email and password");
+//     return;
+//   }
+
+//   try {
+//     const response = await axios.post(
+//       "http://10.4.9.162:8000/api/login",
+//       {
+//         email: email,
+//         password: password,
+//       }
+//     );
+
+//     console.log(response.data);
+
+//     // Save token returned by backend
+//     localStorage.setItem("token", response.data.token);
+
+//     // Tell App.jsx that login was successful
+//     onLogin(response.data.user);
+
+//   } catch (error) {
+//     console.error(error);
+//     console.log("STATUS:", error.response?.status);
+//     console.log("DATA:", error.response?.data);
+//     console.log("MESSAGE:", error.message);
+
+//     if (error.response) {
+//       alert(error.response.data.message || "Login failed");
+//     } else {
+//       alert( error.response?.data?.message ||
+//     error.message ||
+//     "Login failed");
+//     }
+//   }
+// };
 
   return (
     <div className="login-page">
@@ -150,14 +193,14 @@ const handleLogin = (e) => {
 
           {/* Username */}
           <div className="form-group">
-            <label>Username</label>
+            <label>Email</label>
 
             <div className="input-wrapper">
               <BsEnvelope className="input-icon" />
 
               <input
-                type="text"
-                placeholder="Enter your username"
+                type="email"
+                placeholder="Enter your email"
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
