@@ -989,6 +989,7 @@ tbody tr:hover {
 
   .report-page {
     padding: 14px;
+    padding-top: 120px;
   }
 
   .statistics-grid {

@@ -795,6 +795,7 @@
 @media (max-width: 768px) {
   .dashboard-page {
     padding: 14px;
+    padding-top: 120px;
   }
 
   .dashboard-header {

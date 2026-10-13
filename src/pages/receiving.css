@@ -689,6 +689,7 @@
 @media (max-width: 768px) {
   .receiving-page {
     padding: 15px;
+    padding-top: 120px;
   }
 
   .receiving-header {

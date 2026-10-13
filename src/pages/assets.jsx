@@ -1089,7 +1089,7 @@ function Assets() {
           </div>
         </div>
       )}
-
+``
       {/* Delete Modal */}
       {showDeleteModal && selectedAsset && (
         <div className="assets-modal-overlay">

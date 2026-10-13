@@ -1071,6 +1071,7 @@
 @media (max-width: 650px) {
   .department-content {
     padding: 12px;
+    padding-top: 120px;
   }
 
   .department-title-area {

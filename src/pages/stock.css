@@ -695,6 +695,7 @@
 @media (max-width: 768px) {
   .stock-page {
     padding: 15px;
+    padding-top: 120px;
   }
 
   .stock-header {

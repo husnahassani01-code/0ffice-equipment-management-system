@@ -875,6 +875,7 @@
 @media (max-width: 950px) {
   .employee-page {
     padding: 20px;
+    padding-top: 120px;
   }
 
   .employee-header {
@@ -907,6 +908,7 @@
 @media (max-width: 700px) {
   .employee-page {
     padding: 14px;
+    padding-top: 120px;
   }
 
   .employee-title-icon {
@@ -1070,6 +1072,7 @@
 @media (max-width: 480px) {
   .employee-page {
     padding: 10px;
+    padding-top: 120px;
   }
 
   .employee-header-actions {

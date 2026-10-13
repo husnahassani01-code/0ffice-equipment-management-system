@@ -4,7 +4,7 @@
   background: #f6f8fb;
   min-height: 100vh;
   color: #3567b3;
-  padding-top: 120px;
+  padding-top: 150px;
   
 }
 .sidebarOpen .assets-page {
@@ -895,6 +895,7 @@
 @media (max-width: 520px) {
   .assets-page {
     padding: 12px;
+    padding-top: 120px;
   }
 
   .assets-header {

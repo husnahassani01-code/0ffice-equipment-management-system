@@ -697,6 +697,7 @@
 @media (max-width: 768px) {
   .issuing-page {
     padding: 15px;
+    padding-top: 120px;
   }
 
   .issuing-header {
