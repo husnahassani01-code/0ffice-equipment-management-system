@@ -156,15 +156,14 @@ function Assets() {
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [form, setForm] = useState(emptyForm);
   const [currentPage, setCurrentPage] = useState(1);
-
   const itemsPerPage = 6;
 
   const filteredAssets = useMemo(() => {
     const term = search.toLowerCase().trim();
-
+                
     return assets.filter((asset) => {
       const matchesSearch =
-        !term ||
+        !term ||                                                                                        
         asset.assetTag.toLowerCase().includes(term) ||
         asset.assetName.toLowerCase().includes(term) ||
         asset.brand.toLowerCase().includes(term) ||

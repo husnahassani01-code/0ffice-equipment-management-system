@@ -187,7 +187,6 @@ function Transfer() {
   const [selectedTransfer, setSelectedTransfer] = useState(null);
   const [openMenu, setOpenMenu] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-
   const [form, setForm] = useState({
     assetTag: "",
     fromEmployee: "",
@@ -278,7 +277,7 @@ function Transfer() {
         }));
       }
     }
-
+   
     if (name === "toEmployee") {
       const employee = employees.find((item) => item.name === value);
 
@@ -305,7 +304,7 @@ function Transfer() {
     if (selectedAsset) {
       // Keeps the selected asset ready for submission.
       setForm((prev) => ({
-        ...prev,
+        ...prev,  
         assetTag: selectedAsset.tag,
       }));
     }

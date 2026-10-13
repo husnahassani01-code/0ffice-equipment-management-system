@@ -8,10 +8,6 @@ body {
   font-family: Georgia, "Times New Roman", serif;
 }
 
-/* ============================
-   LOGIN PAGE
-============================ */
-
 .login-page {
   min-height: 100vh;
   background: #f4f7fb;
@@ -23,10 +19,6 @@ body {
   padding: 40px 20px;
 }
 
-
-/* ============================
-   LOGIN CARD
-============================ */
 
 .login-card {
   width: 100%;
@@ -49,10 +41,6 @@ body {
 }
 
 
-/* ============================
-   LOGIN ICON
-============================ */
-
 .login-icon {
   width: 82px;
   height: 82px;
@@ -71,10 +59,6 @@ body {
   font-size: 38px;
 }
 
-
-/* ============================
-   HEADER
-============================ */
 
 .login-header {
   text-align: center;
@@ -99,10 +83,6 @@ body {
 }
 
 
-/* ============================
-   FORM
-============================ */
-
 .form-group {
   margin-bottom: 22px;
 }
@@ -119,10 +99,6 @@ body {
   font-weight: bold;
 }
 
-
-/* ============================
-   INPUT
-============================ */
 
 .input-wrapper {
   position: relative;
@@ -160,10 +136,6 @@ body {
 }
 
 
-/* ============================
-   INPUT ICON
-============================ */
-
 .input-icon {
   position: absolute;
 
@@ -181,10 +153,6 @@ body {
   z-index: 2;
 }
 
-
-/* ============================
-   PASSWORD TOGGLE
-============================ */
 
 .password-toggle {
   position: absolute;
@@ -209,10 +177,6 @@ body {
   color: #2d63e8;
 }
 
-
-/* ============================
-   LOGIN OPTIONS
-============================ */
 
 .login-options {
   display: flex;
@@ -259,10 +223,6 @@ body {
 }
 
 
-/* ============================
-   SIGN IN BUTTON
-============================ */
-
 .sign-in-button {
   width: 100%;
   height: 62px;
@@ -271,7 +231,7 @@ body {
 
   border-radius: 9px;
 
-  background: #2d63e8;
+  background: #2B569A;
 
   color: white;
 
@@ -296,10 +256,6 @@ body {
 }
 
 
-/* ============================
-   REGISTER SECTION
-============================ */
-
 .register-section {
   text-align: center;
 
@@ -321,13 +277,13 @@ body {
   width: 100%;
   height: 52px;
 
-  border: 1px solid #2d63e8;
+  border: 1px solid #2B569A;
 
   border-radius: 9px;
 
   background: white;
 
-  color: #2d63e8;
+  color: #2B569A;
 
   display: flex;
 
@@ -349,10 +305,6 @@ body {
   background: #eef4ff;
 }
 
-
-/* ============================
-   FOOTER
-============================ */
 
 .login-footer {
   text-align: center;
@@ -383,10 +335,6 @@ body {
 }
 
 
-/* ==================================================
-   REGISTRATION MODAL
-================================================== */
-
 .modal-overlay {
   position: fixed;
 
@@ -410,10 +358,6 @@ body {
 }
 
 
-/* ============================
-   MODAL
-============================ */
-
 .register-modal {
   width: 100%;
 
@@ -432,10 +376,6 @@ body {
   animation: modalOpen 0.25s ease;
 }
 
-
-/* ============================
-   MODAL HEADER
-============================ */
 
 .modal-header {
   display: flex;
@@ -491,10 +431,6 @@ body {
 }
 
 
-/* ============================
-   CLOSE
-============================ */
-
 .close-button {
   width: 38px;
   height: 38px;
@@ -524,18 +460,10 @@ body {
 }
 
 
-/* ============================
-   REGISTER FORM
-============================ */
-
 .register-form {
   padding: 28px 30px 30px;
 }
 
-
-/* ============================
-   SELECT
-============================ */
 
 .input-wrapper select {
   appearance: none;
@@ -543,10 +471,6 @@ body {
   cursor: pointer;
 }
 
-
-/* ============================
-   TERMS
-============================ */
 
 .terms {
   display: flex;
@@ -589,10 +513,6 @@ body {
   text-decoration: underline;
 }
 
-
-/* ============================
-   MODAL ACTIONS
-============================ */
 
 .modal-actions {
   display: flex;
@@ -661,10 +581,6 @@ body {
 }
 
 
-/* ============================
-   MODAL ANIMATION
-============================ */
-
 @keyframes modalOpen {
 
   from {
@@ -681,10 +597,7 @@ body {
 
 }
 
-
-/* ==================================================
-   MOBILE
-================================================== */
+/* Mobile */
 
 @media (max-width: 600px) {
 

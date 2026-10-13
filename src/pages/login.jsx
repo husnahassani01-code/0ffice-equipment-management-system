@@ -196,7 +196,6 @@ const handleLogin =async (e) => {
             <label>Email</label>
 
             <div className="input-wrapper">
-              <BsEnvelope className="input-icon" />
 
               <input
                 type="email"
@@ -212,7 +211,6 @@ const handleLogin =async (e) => {
             <label>Password</label>
 
             <div className="input-wrapper">
-              <BsLock className="input-icon" />
 
               <input
                 type={showPassword ? "text" : "password"}
@@ -267,7 +265,7 @@ const handleLogin =async (e) => {
         </form>
 
 
-        {/* ================= REGISTER BUTTON ================= */}
+        {/* REGISTER BUTTON  */}
 
         <div className="register-section">
 
@@ -304,9 +302,7 @@ const handleLogin =async (e) => {
       </div>
 
 
-      {/* =================================================
-          REGISTRATION POPUP
-      ================================================= */}
+      {/* REGISTRATION POPUP */}
 
       {showRegister && (
         <div

@@ -29,6 +29,7 @@
 }
 .logo{
   display: flex;
+  padding-top: 20px;
 }
 li{
   list-style: none;

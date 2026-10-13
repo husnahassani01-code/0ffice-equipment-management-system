@@ -22,10 +22,6 @@
   margin: 0 auto;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -71,9 +67,6 @@
   cursor: pointer;
 }
 
-/* =========================
-   STATISTICS
-========================= */
 
 .stats-grid {
   display: grid;
@@ -170,9 +163,6 @@
   color: #9aa2b1;
 }
 
-/* =========================
-   CARDS
-========================= */
 
 .dashboard-card {
   background: #fff;
@@ -205,9 +195,6 @@
   color: #8992a2;
 }
 
-/* =========================
-   MAIN GRID
-========================= */
 
 .dashboard-main-grid {
   display: grid;
@@ -216,9 +203,6 @@
   margin-bottom: 20px;
 }
 
-/* =========================
-   OVERVIEW
-========================= */
 
 .overview-content {
   display: flex;
@@ -246,15 +230,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.donut-chart::before {
-  content: "";
-  width: 105px;
-  height: 105px;
-  position: absolute;
-  border-radius: 50%;
-  background: #fff;
 }
 
 .donut-center {
