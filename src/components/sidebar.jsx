@@ -6,7 +6,6 @@ import { BsHouseFill, BsBarChartFill, BsExclamationTriangle, BsPersonCircle, BsB
    
 function sidebar({setActivePage}) {
   
-
   return (
     <div className='asides'>
          <div className="logo">

@@ -67,7 +67,6 @@
   cursor: pointer;
 }
 
-
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -223,7 +222,7 @@
   height: 155px;
   border-radius: 50%;
   background: conic-gradient(
-    #3567b3 0deg 238deg,
+    #1861cf 0deg 238deg,
     #6d9ddd 238deg 343deg,
     #f1b84b 343deg 360deg
   );
@@ -242,12 +241,12 @@
 
 .donut-center strong {
   font-size: 25px;
-  color: #17233c;
+  color: white;
 }
 
 .donut-center span {
   font-size: 11px;
-  color: #929aaa;
+  color: white;
 }
 
 .overview-list {
@@ -294,10 +293,6 @@
   font-size: 11px;
   color: #8b94a4;
 }
-
-/* =========================
-   QUICK ACTIONS
-========================= */
 
 .quick-actions {
   display: grid;
@@ -371,10 +366,6 @@
 .quick-arrow {
   color: #a2a9b5;
 }
-
-/* =========================
-   DEPARTMENT + ACTIVITY
-========================= */
 
 .dashboard-two-column {
   display: grid;
@@ -487,10 +478,6 @@
   color: #a1a8b4;
   margin-top: 3px;
 }
-
-/* =========================
-   RECENT ASSETS
-========================= */
 
 .recent-assets-card {
   margin-bottom: 20px;
@@ -657,10 +644,6 @@
   color: #9aa2b1 !important;
 }
 
-/* =========================
-   MOBILE ASSETS
-========================= */
-
 .mobile-assets {
   display: none;
 }
@@ -707,10 +690,6 @@
   font-size: 9px;
   margin-bottom: 2px;
 }
-
-/* =========================
-   BOTTOM SUMMARY
-========================= */
 
 .bottom-summary {
   display: grid;
@@ -760,10 +739,6 @@
   font-size: 20px;
   margin-top: 2px;
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 1200px) {
   .stats-grid {
